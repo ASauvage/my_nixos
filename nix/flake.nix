@@ -2,30 +2,36 @@
     description = "System installation";
 
     inputs = {
-        nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-24.11";
-        nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+        nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
+        nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+        agspkgs = {
+            url = "github:aylur/ags";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
     };
 
-    outputs = { nixpkgs, nixpkgs-unstable, ... } @ inputs:
+    outputs = { self, nixpkgs, nixpkgs-unstable, agspkgs, ... } @ inputs:
     let
         system = "x86_64-linux";
+        pkgs = nixpkgs.legacyPackages.${system};
+        pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
+        pkgsags = agspkgs.packages.${system};
     in {
-        nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-            inherit system;
-            specialArgs = { inherit inputs; };
-
-            pkgs = import nixpkgs {
+        nixosConfigurations = {
+            nixos = nixpkgs.lib.nixosSystem {
                 inherit system;
-                config.allowUnfree = true;
-                overlays = [];
-            };
+                specialArgs = {
+                    inherit pkgs-unstable;
+                    inherit pkgsags;
+                };
 
-            modules = [
-                ./configuration.nix
-                ./packages.nix
-                ./users.nix
-                ./dotfiles.nix
-            ];
+                modules = [
+                    ./configuration.nix
+                    ./packages.nix
+                    ./users.nix
+                    ./dotfiles.nix
+                ];
+            };
         };
     };
 }

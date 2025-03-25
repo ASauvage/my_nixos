@@ -1,40 +1,53 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, pkgs-unstable, pkgsags, ... }:
 {
-    environment.systemPackages = with pkgs; [
-        kitty
-        fish
-        foot
-        starship
+    environment.systemPackages = 
+        (with pkgs; [
+            kitty
+            fish
+            starship
+            
+            nitch
+            vim
+
+            hyprpaper
+            hyprlock
+            hypridle
+            hyprshot
+            hyprcursor
+            waybar
+
+            firefox
+            nautilus
+            vscode
+            spotify
+            webcord
+
+            anyrun
+            pavucontrol
+            pipewire
+            brightnessctl
+            wget
+
+            (where-is-my-sddm-theme.override {
+                variants = ["qt5"];
+            })
+        ])
+
+        ++
         
-        nitch
-        vim
+        (with pkgs-unstable; [
+            foot
+        ])
 
-        hyprpaper
-        hyprlock
-        hypridle
-        hyprshot
-        hyprcursor
-        waybar
+        ++
 
-        firefox
-        nautilus
-        vscode
-        spotify
-        webcord
+        (with pkgsags; [
+            battery
+            hyprland
+            network
+        ]);
 
-        anyrun
-        pavucontrol
-        pipewire
-        brightnessctl
-        wget
-
-        (where-is-my-sddm-theme.override {
-            variants = ["qt5"];
-        })
-    ];
-
-    fonts.packages = with pkgs; [
-        # inputs.nixpkgs-unstable.packages.${system}.nerd-fonts.space-mono
-        # nerdfonts
+    fonts.packages = with pkgs-unstable; [
+        nerd-fonts.space-mono
     ];
 }

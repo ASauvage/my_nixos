@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, ... }:
 {
     nix.settings.experimental-features = ["nix-command" "flakes"];
 
@@ -47,6 +47,9 @@
 
     # Configure console keymap
     console.keyMap = "fr";
+
+    # Allow unfree packages
+    nixpkgs.config.allowUnfree = true;
 
     # List proggrams configurations
     programs.hyprland.enable = true;

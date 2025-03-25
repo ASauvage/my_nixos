@@ -23,6 +23,7 @@ sudo cp -rf "$TEMP_DIR"/dotfiles/ /etc/nixos/dotfiles || {
 
 echo "Cleaning up..."
 rm -rf "$TEMP_DIR"
+rm -rf "/etc/nixos/dotfiles/"
 
 echo "Configuration added successfully!"
 

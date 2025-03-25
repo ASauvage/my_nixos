@@ -48,18 +48,6 @@
     # Configure console keymap
     console.keyMap = "fr";
 
-    # Packages config
-    nixpkgs.config = {
-        allowUnfree = true;
-    };
-
-
-    services.displayManager.sddm = {
-        enable = true;
-        wayland.enable = true;
-        theme = "where_is_my_sddm_theme_qt5";
-    };
-
     # List proggrams configurations
     programs.hyprland.enable = true;
     programs.firefox.enable = true;
@@ -67,6 +55,11 @@
 
     # List services configurations
     services.displayManager.defaultSession = "hyprland";
+    services.displayManager.sddm = {
+        enable = true;
+        wayland.enable = true;
+        theme = "where_is_my_sddm_theme_qt5";
+    };
     # services.openssh.enable = true;
 
     # Open ports in the firewall.
@@ -77,9 +70,9 @@
 
     nix.gc = {
         automatic = true;
-        date = "weekly";
+        dates = "weekly";
         options = "--delete-older-than 30d";
-    }
+    };
 
     # This value determines the NixOS release from which the default
     # settings for stateful data, like file locations and database versions

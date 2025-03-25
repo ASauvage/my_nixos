@@ -27,10 +27,14 @@
         pipewire
         brightnessctl
         wget
+
+        (where-is-my-sddm-theme.override {
+            variants = ["qt5"];
+        })
     ];
 
     fonts.packages = with pkgs; [
-        inputs.nixpkgs-unstable.packages.${system}.nerd-fonts.space-mono
+        # inputs.nixpkgs-unstable.packages.${system}.nerd-fonts.space-mono
         # nerdfonts
     ];
 }

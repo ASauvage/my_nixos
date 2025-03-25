@@ -26,7 +26,7 @@ rm -rf "$TEMP_DIR"
 
 echo "Configuration added successfully!"
 
-read -p "Do you wish to rebuild nixos? " yn
-if [ $yn in [Yy]* ]; then
+read -p "Do you wish to rebuild nixos? [Yn]: " yn
+if [[ $yn =~ ^[Yy]$ ]]; then
     sudo nixos-rebuild switch
 fi

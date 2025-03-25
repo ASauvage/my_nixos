@@ -20,15 +20,17 @@
         nautilus
         vscode
         spotify
+        webcord
 
         anyrun
+        pavucontrol
         pipewire
         brightnessctl
         wget
     ];
 
     fonts.packages = with pkgs; [
-        # nerd-fonts.space-mono
-        nerdfonts
+        inputs.nixpkgs-unstable.packages.${system}.nerd-fonts.space-mono
+        # nerdfonts
     ];
 }

@@ -9,7 +9,7 @@ in {
 
             ${pkgs.coreutils}/bin/mkdir -p "${user.home}/Documents" "${user.home}/Downloads" "${user.home}/Pictures" "${user.home}/Videos"
             
-            ${pkgs.coreutils}/bin/cp -rf "./dotfiles/." "${user.home}"
+            ${pkgs.coreutils}/bin/cp -rf "/etc/nixos/dotfiles/." "${user.home}"
             ${pkgs.coreutils}/bin/chown "$username" "${user.home}/.config"
         '') usersWithHome);
 

@@ -1,11 +1,11 @@
 { config, pkgs, inputs, ... }:
 {
+    nix.settings.experimental-features = ["nix-command" "flakes"];
+
     imports =
     [ 
         ./hardware-configuration.nix
     ];
-
-    nix.settings.experimental-features = ["nix-command" "flakes"];
 
     # Bootloader.
     boot.loader.systemd-boot.enable = true;
@@ -20,10 +20,6 @@
 
     # Enable networking
     networking.networkmanager.enable = true;
-
-    # hyprland setup
-    programs.hyprland.enable = true;
-    services.displayManager.defaultSession = "hyprland";
 
     # Set your time zone.
     time.timeZone = "Europe/Paris";
@@ -52,21 +48,25 @@
     # Configure console keymap
     console.keyMap = "fr";
 
-    # Allow unfree packages
-    nixpkgs.config.allowUnfree = true;
+    # Packages config
+    nixpkgs.config = {
+        allowUnfree = true;
+    };
 
 
     services.displayManager.sddm = {
-    enable = true;
-    wayland.enable = true;
-    theme = "where_is_my_sddm_theme_qt5";
-  };
+        enable = true;
+        wayland.enable = true;
+        theme = "where_is_my_sddm_theme_qt5";
+    };
 
-    # List services that you want to enable:
+    # List proggrams configurations
+    programs.hyprland.enable = true;
     programs.firefox.enable = true;
     programs.git.enable = true;
 
-    # Enable the OpenSSH daemon.
+    # List services configurations
+    services.displayManager.defaultSession = "hyprland";
     # services.openssh.enable = true;
 
     # Open ports in the firewall.
@@ -74,6 +74,12 @@
     # networking.firewall.allowedUDPPorts = [ ... ];
     # Or disable the firewall altogether.
     # networking.firewall.enable = false;
+
+    nix.gc = {
+        automatic = true;
+        date = "weekly";
+        options = "--delete-older-than 30d";
+    }
 
     # This value determines the NixOS release from which the default
     # settings for stateful data, like file locations and database versions

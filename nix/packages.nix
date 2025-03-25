@@ -26,7 +26,9 @@
         brightnessctl
         wget
     ];
+
     fonts.packages = with pkgs; [
         # nerd-fonts.space-mono
+        nerdfonts
     ];
 }

@@ -1,13 +1,18 @@
-{ config, pkgs, userSettings, ... }:
+{ pkgs, userSettings, ... }:
 
 {
-    home.packages = [ pkgs.git ];
-    programs.git.enable = true;
-    programs.git.userName = userSettings.name;
-    programs.git.userEmail = userSettings.email;
-    programs.git.extraConfig = {
-        init.defaultBranch = "main";
-        safe.directory = [ ("/home/" + userSettings.username + "/.dotfiles")
-                        ("/home/" + userSettings.username + "/.dotfiles/.git") ];
-    };
+    programs.git = {
+        enable = true;
+        package = pkgs.git;
+        userName = userSettings.name;
+        userEmail = userSettings.email;
+        aliases = {};
+        extraConfig = {
+            init.defaultBranch = "main";
+            safe.directory = [
+                ("/home/" + userSettings.username + "/.dotfiles")
+                ("/home/" + userSettings.username + "/.dotfiles/.git")
+            ];
+        }
+    }
 }

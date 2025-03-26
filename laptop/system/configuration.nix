@@ -1,4 +1,6 @@
-{ inputs, pkgs, pkgs-unstable, pkgsags, systemSettings, ... }: {
+{ inputs, pkgs, pkgs-unstable, pkgsags, systemSettings, ... }:
+
+{
 
     imports = [
         ./hardware-configuration.nix

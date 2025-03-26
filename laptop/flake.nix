@@ -19,22 +19,21 @@
     outputs = { self, ... } @ inputs: let
         # ---- SYSTEM SETTINGS ---- #
         systemSettings = {
-            system = "x86_64-linux";        # system arch
-            hostname = "nixos";             # hostname
-            profile = "personal";           # select a profile defined from my profiles directory
-            timezone = "Europe/Paris";      # select timezone
-            locale = "en_US.UTF-8";         # select locale
-            bootMode = "uefi";              # uefi or bios
-            bootMountPath = "/boot";        # mount path for efi boot partition; only used for uefi boot mode
+            system = "x86_64-linux";            # system arch
+            hostname = "nixos";                 # hostname
+            profile = "personal";               # select a profile defined from my profiles directory
+            timezone = "Europe/Paris";          # select timezone
+            locale = "en_US.UTF-8";             # select locale
+            bootMode = "uefi";                  # uefi or bios
+            bootMountPath = "/boot";            # mount path for efi boot partition; only used for uefi boot mode
         };
 
         # ----- USER SETTINGS ----- #
         userSettings = {
             username = "alex";                  # username
             name = "Alex";                      # name/identifier
-            email = "alex@mail.com";            # email (used for certain configurations)
+            email = "a.sauvagepotel@gmail.com"; # email (used for certain configurations)
             dotfilesDir = "~/.dotfiles";        # absolute path of the local repo
-            wmType = "wayland";
             browser = "firefox";                # Default browser; must select one from ./user/app/browser/
             term = "foot";                      # Default terminal command;
             editor = "vim";                     # Default editor;

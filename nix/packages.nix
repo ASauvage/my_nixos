@@ -31,11 +31,17 @@
             (where-is-my-sddm-theme.override {
                 variants = ["qt5"];
             })
+            (writeTextDir "share/sddm/themes/where_is_my_sddm_theme_qt5/theme.conf.user" ''
+                [General]
+                cursorBlinkAnimation=true
+                passwordCursorColor=
+            '')
         ])
 
         ++
         
         (with pkgs-unstable; [
+            ags
             foot
         ])
 

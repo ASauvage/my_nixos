@@ -38,21 +38,21 @@
         };
 
         pkgs = import inputs.nixpkgs {
-            inherit systemSettings.system;
+            system = systemSettings.system;
             config = {
                 allowUnfree = true;
                 allowUnfreePredicate = (_: true);
             };
         };
         pkgs-unstable = import inputs.nixpkgs-unstable {
-            inherit systemSettings.system;
+            system = systemSettings.system;
             config = {
                 allowUnfree = true;
                 allowUnfreePredicate = (_: true);
             };
         };
         pkgsags = import inputs.agspkgs {
-            inherit systemSettings.system;
+            system = systemSettings.system;
             config = {
                 allowUnfree = true;
                 allowUnfreePredicate = (_: true);
@@ -60,8 +60,8 @@
         };
     in {
         nixosConfigurations = {
-            system = nixpkgs.lib.nixosSystem {
-                inherit systemSettings.system;
+            system = inputs.nixpkgs.lib.nixosSystem {
+                system = systemSettings.system;
                 specialArgs = {
                     inherit inputs;
                     inherit pkgs-unstable;
@@ -76,7 +76,7 @@
         };
 
         homeConfigurations = {
-            user = home-manager.lib.homeManagerConfiguration {
+            user = inputs.home-manager.lib.homeManagerConfiguration {
                 inherit pkgs;
                 extraSpecialArgs = {
                     inherit inputs;

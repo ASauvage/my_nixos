@@ -68,7 +68,7 @@
         systemd.enable = true;
     };
 
-    home.file.".config/hypr/hyrpland/".source = "./hyrpland/";
+    xdg.configFile."hypr/hyrpland/".source = "./hyrpland/";
 
     home.packages = (with pkgs; [
         kitty

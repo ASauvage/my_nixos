@@ -6,10 +6,10 @@
         package = pkgs.hyprpaper;
         settings = {
             preload = [
-                "~/Pictures/wallpaper.png"
+                "~/Media/Pictures/wallpaper.png"
             ];
             wallpaper = [
-                ", ~/Pictures/wallpaper.png"
+                ", ~/Media/Pictures/wallpaper.png"
             ];
         };
     };

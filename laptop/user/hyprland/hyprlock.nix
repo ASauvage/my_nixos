@@ -13,7 +13,7 @@
             };
             background = {
                 monitor = "";
-                path = "~/Pictures/wallpaper.png";
+                path = "~/Media/Pictures/wallpaper.png";
                 color = "rgba(20,19,24, 1.0)";
                 blur_passes = 3;
                 blur_size = 1;

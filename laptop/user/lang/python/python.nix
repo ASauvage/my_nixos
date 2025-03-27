@@ -1,7 +1,11 @@
 { pkgs, ... }:
 
 {
-  home.packages = with pkgs; [
-      python3Full
-  ];
+    import = [
+        ./python-pkgs.nix
+    ];
+    
+    home.packages = (with pkgs; [
+        python3Full
+    ]);
 }

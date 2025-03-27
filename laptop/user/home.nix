@@ -3,6 +3,17 @@
 {
     imports = [
         ./hyprland/hyprland.nix
+        ./ags/ags.nix
+        ./app/browser/firefox.nix
+        ./app/anyrun.nix
+        ./app/foot.nix
+        ./app/git.nix
+        ./app/vim.nix
+        ./lang/python/python.nix
+        ./shell/cli.nix
+        ./shell/cli-pkgs
+        ./shell/starship.nix
+        ./pkgs.nix
     ];
 
     home = {

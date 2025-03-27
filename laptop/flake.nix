@@ -6,7 +6,7 @@
         nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
         agspkgs = {
-            url = "github:aylur/astal";
+            url = "github:aylur/ags";
             inputs.nixpkgs.follows = "nixpkgs";
         };
 
@@ -24,8 +24,6 @@
             profile = "personal";               # select a profile defined from my profiles directory
             timezone = "Europe/Paris";          # select timezone
             locale = "en_US.UTF-8";             # select locale
-            bootMode = "uefi";                  # uefi or bios
-            bootMountPath = "/boot";            # mount path for efi boot partition; only used for uefi boot mode
         };
 
         # ----- USER SETTINGS ----- #

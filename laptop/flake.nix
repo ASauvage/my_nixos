@@ -70,7 +70,7 @@
                     inherit userSettings;
                 };
                 modules = [
-                    ./systems/configuration.nix
+                    ./system/configuration.nix
                 ];
             };
         };

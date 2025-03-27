@@ -19,23 +19,23 @@
     outputs = { self, ... } @ inputs: let
         # ---- SYSTEM SETTINGS ---- #
         systemSettings = {
-            system = "x86_64-linux";            # system arch
-            hostname = "nixos";                 # hostname
-            timezone = "Europe/Paris";          # select timezone
-            defaultLocale = "en_US.UTF-8";      # select default local
-            locale = "fr_FR.UTF-8";             # select locale
-            authorizedKeys = [];                # authorized ssh keys
+            system = "x86_64-linux";
+            hostname = "nixos";
+            timezone = "Europe/Paris";
+            defaultLocale = "en_US.UTF-8";
+            locale = "fr_FR.UTF-8";
+            authorizedKeys = [];
         };
 
         # ----- USER SETTINGS ----- #
         userSettings = {
-            username = "alex";                  # username
-            name = "Alex";                      # name/identifier
-            email = "a.sauvagepotel@gmail.com"; # email (used for certain configurations)
-            dotfilesDir = "~/.dotfiles";        # absolute path of the local repo
-            browser = "firefox";                # Default browser; must select one from ./user/app/browser/
-            term = "foot";                      # Default terminal command;
-            editor = "vim";                     # Default editor;
+            username = "alex";
+            name = "Alex";
+            email = "a.sauvagepotel@gmail.com";
+            dotfilesDir = "~/.dotfiles";
+            browser = "firefox";
+            term = "foot";
+            editor = "vim";
         };
 
         pkgs = import inputs.nixpkgs {

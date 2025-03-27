@@ -3,7 +3,7 @@
 {
 
     imports = [
-        ./hardware-configuration.nix
+        ../../hardware-configuration.nix
         ./hardware/systemd.nix
         ./hardware/kernel.nix
         ./hardware/power.nix

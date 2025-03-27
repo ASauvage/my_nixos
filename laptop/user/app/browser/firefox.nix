@@ -4,10 +4,10 @@
     programs.firefox = {
         enable = true;
         package = pkgs.firefox;
-        languagePacks = {
+        languagePacks = [
             "en-US"
             "fr-FR"
-        };
+        ];
         policies = {
             DefaultDownloadDirectory = "\${home}/Downloads";
             DisplayMenuBar = "always";
@@ -17,12 +17,12 @@
             DisablePocket = true;
             OfferToSaveLogins = false;
             Preferences = {
-                "extensions.pocket.enabled" = lock-false;
-                "browser.newtabpage.pinned" = lock-empty-string;
-                "browser.topsites.contile.enabled" = lock-false;
-                "browser.newtabpage.activity-stream.showSponsored" = lock-false;
-                "browser.newtabpage.activity-stream.system.showSponsored" = lock-false;
-                "browser.newtabpage.activity-stream.showSponsoredTopSites" = lock-false;
+                "extensions.pocket.enabled" = "lock-false";
+                "browser.newtabpage.pinned" = "lock-empty-string";
+                "browser.topsites.contile.enabled" = "lock-false";
+                "browser.newtabpage.activity-stream.showSponsored" = "lock-false";
+                "browser.newtabpage.activity-stream.system.showSponsored" = "lock-false";
+                "browser.newtabpage.activity-stream.showSponsoredTopSites" = "lock-false";
             };
             FirefoxHome = {
                 Search = true;
@@ -103,6 +103,6 @@
                     Folder = "Streaming";
                 }
             ];
-        }
-    }
+        };
+    };
 }

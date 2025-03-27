@@ -5,7 +5,7 @@
         anyrun
     ]);
 
-    home.file.".config/anyrun/config.ron" = ''
+    xdg.configFile.".config/anyrun/config.ron".text = ''
         Config(
             x: Fraction(0.500000),
             y: Absolute(200),
@@ -20,7 +20,7 @@
             max_entries: None,
         )
     '';
-    home.file.".config/anyrun/style.css" = ''
+    xdg.configFile.".config/anyrun/style.css".text = ''
         * {
             all: unset;
             font-size: 1.3rem;

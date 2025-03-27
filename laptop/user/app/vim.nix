@@ -1,100 +1,193 @@
 { pkgs, ... }:
 
 {
-    programs.vim = {
-        enable = true;
-        package = pkgs.vim;
-        extraConfig = ''
-            " Disable compatibility with vi
-            set nocompatible
+    # programs.vim = {
+    #     enable = true;
+    #     package = pkgs.vim;
+    #     extraConfig = ''
+    #         " Disable compatibility with vi
+    #         set nocompatible
 
-            " Enable type file detection
-            filetype on
+    #         " Enable type file detection
+    #         filetype on
 
-            " Enable plugins
-            filetype plugin on
+    #         " Enable plugins
+    #         filetype plugin on
 
-            " Load an indent file for the detected file type
-            filetype indent on
+    #         " Load an indent file for the detected file type
+    #         filetype indent on
 
-            " Turn syntax highlighting on
-            syntax on
+    #         " Turn syntax highlighting on
+    #         syntax on
 
-            " Display number line
-            set number
-            highlight lineNr term=bold cterm=NONE ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
+    #         " Display number line
+    #         set number
+    #         highlight lineNr term=bold cterm=NONE ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
 
-            " Set mouse support
-            set mouse=a
+    #         " Set mouse support
+    #         set mouse=a
 
-            " Highlight cursor line underneath cursor horizontally
-            " set cursorline
+    #         " Highlight cursor line underneath cursor horizontally
+    #         " set cursorline
 
-            " Highlight cursor line underneath cursor vertically
-            " set cursorcolumn
+    #         " Highlight cursor line underneath cursor vertically
+    #         " set cursorcolumn
 
-            " Set shift width
-            set shiftwidth=4
+    #         " Set shift width
+    #         set shiftwidth=4
 
-            " set tab width
-            set tabstop=4
+    #         " set tab width
+    #         set tabstop=4
 
-            " set backspace erase tab
-            set backspace=indent,eol,start
+    #         " set backspace erase tab
+    #         set backspace=indent,eol,start
 
-            " Use space character instead of tabs
-            set expandtab
+    #         " Use space character instead of tabs
+    #         set expandtab
 
-            " Use autoindent
-            set smartindent
+    #         " Use autoindent
+    #         set smartindent
 
-            " Do not save backup files
-            set nobackup
+    #         " Do not save backup files
+    #         set nobackup
 
-            " Do not let cursor scroll below or above number of line when scrolling
-            set scrolloff=6
+    #         " Do not let cursor scroll below or above number of line when scrolling
+    #         set scrolloff=6
 
-            " Do not wrap lines
-            set nowrap
+    #         " Do not wrap lines
+    #         set nowrap
 
-            " Hightlight matching search
-            set incsearch
+    #         " Hightlight matching search
+    #         set incsearch
 
-            " Override the ignorecase option
-            " set smartcase
+    #         " Override the ignorecase option
+    #         " set smartcase
 
-            set showcmd
-            set showmode
-            set showmatch
+    #         set showcmd
+    #         set showmode
+    #         set showmatch
 
-            " Use highlight when search
-            set hlsearch
+    #         " Use highlight when search
+    #         set hlsearch
 
-            " Enable autocompletion menu
-            set wildmenu
-            set wildmode=list:longest
-            set wildignore=*.docx,*.jpg,*.jpeg,*.png,*.gif,*.pdf,*.pyc,*.flv,*.img,*.xlsx
-
-
-            " PLUGINS -------------------------------------------
-            "
+    #         " Enable autocompletion menu
+    #         set wildmenu
+    #         set wildmode=list:longest
+    #         set wildignore=*.docx,*.jpg,*.jpeg,*.png,*.gif,*.pdf,*.pyc,*.flv,*.img,*.xlsx
 
 
-            " MAPPINGS ------------------------------------------
-            "
+    #         " PLUGINS -------------------------------------------
+    #         "
 
 
-            " VIMSCRIPT -----------------------------------------
-            "
-            augroup filetype_vim
-                autocmd!
-                autocmd FileType vim setlocal foldmethod=marker
-            augroup END
-
-            " STATUS LINE ---------------------------------------
-            "
+    #         " MAPPINGS ------------------------------------------
+    #         "
 
 
-        '';
-    };
+    #         " VIMSCRIPT -----------------------------------------
+    #         "
+    #         augroup filetype_vim
+    #             autocmd!
+    #             autocmd FileType vim setlocal foldmethod=marker
+    #         augroup END
+
+    #         " STATUS LINE ---------------------------------------
+    #         "
+
+
+    #     '';
+    # };
+
+    home.file.".vimrc".text = ''
+        " Disable compatibility with vi
+        set nocompatible
+
+        " Enable type file detection
+        filetype on
+
+        " Enable plugins
+        filetype plugin on
+
+        " Load an indent file for the detected file type
+        filetype indent on
+
+        " Turn syntax highlighting on
+        syntax on
+
+        " Display number line
+        set number
+        highlight lineNr term=bold cterm=NONE ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
+
+        " Set mouse support
+        set mouse=a
+
+        " Highlight cursor line underneath cursor horizontally
+        " set cursorline
+
+        " Highlight cursor line underneath cursor vertically
+        " set cursorcolumn
+
+        " Set shift width
+        set shiftwidth=4
+
+        " set tab width
+        set tabstop=4
+
+        " set backspace erase tab
+        set backspace=indent,eol,start
+
+        " Use space character instead of tabs
+        set expandtab
+
+        " Use autoindent
+        set smartindent
+
+        " Do not save backup files
+        set nobackup
+
+        " Do not let cursor scroll below or above number of line when scrolling
+        set scrolloff=6
+
+        " Do not wrap lines
+        set nowrap
+
+        " Hightlight matching search
+        set incsearch
+
+        " Override the ignorecase option
+        " set smartcase
+
+        set showcmd
+        set showmode
+        set showmatch
+
+        " Use highlight when search
+        set hlsearch
+
+        " Enable autocompletion menu
+        set wildmenu
+        set wildmode=list:longest
+        set wildignore=*.docx,*.jpg,*.jpeg,*.png,*.gif,*.pdf,*.pyc,*.flv,*.img,*.xlsx
+
+
+        " PLUGINS -------------------------------------------
+        "
+
+
+        " MAPPINGS ------------------------------------------
+        "
+
+
+        " VIMSCRIPT -----------------------------------------
+        "
+        augroup filetype_vim
+            autocmd!
+            autocmd FileType vim setlocal foldmethod=marker
+        augroup END
+
+        " STATUS LINE ---------------------------------------
+        "
+
+
+    '';
 }

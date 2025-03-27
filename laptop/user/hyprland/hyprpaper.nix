@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 {
-    programs.hyprpaper = {
+    services.hyprpaper = {
         enable = true;
         package = pkgs.hyprpaper;
         settings = {

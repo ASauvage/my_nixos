@@ -49,7 +49,7 @@
                 bothlock_color = -1;
                 invert_numlock = false;
                 swap_font_color = false;
-                position = 0, 70;
+                position = "0, 70";
                 halign = "center";
                 valign = "bottom";
             };
@@ -104,7 +104,7 @@
                     shadow_size = 10;
                 }
                 # Battery
-                label {
+                {
                     monitor = "";
                     text = ''cmd[update:1000] . ~/.config/hypr/scripts/battery.sh status'';
                     color = "rgba(229,222,255, 1.0)";

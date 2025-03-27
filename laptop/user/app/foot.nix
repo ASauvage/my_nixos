@@ -3,7 +3,7 @@
 {
     programs.foot = {
         enable = true;
-        packages = pkgs.foot;
+        package = pkgs.foot;
         settings = {
             main = {
                 shell = "fish";
@@ -275,6 +275,6 @@
 
                 # vim: ft = "dosini";
             };  
-        }
+        };
     };
 }

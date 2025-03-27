@@ -19,7 +19,7 @@
             size = 24;
         };
         iconTheme = {
-            package = pkgs.gnome.adwaita-icon-theme;
+            package = pkgs.adwaita-icon-theme;
             # package = pkgs.papirus-icon-theme
             name = "Adwaita";
         };
@@ -68,7 +68,7 @@
         systemd.enable = true;
     };
 
-    xdg.configFile."hypr/hyrpland/".source = "./hyrpland/";
+    xdg.configFile."hypr/hyprland/".source = ./hypr;
 
     home.packages = (with pkgs; [
         kitty

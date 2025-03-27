@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 {
-    programs.hypridle = {
+    services.hypridle = {
         enable = true;
         package = pkgs.hypridle;
         settings = {
@@ -15,15 +15,15 @@
                 {
                     # Screenlock
                     timeout = 600;
-                    on-timeout = loginctl lock-session;
+                    on-timeout = "loginctl lock-session";
                 }
                 {
                     # dpms
                     timeout = 660;
-                    on-timeout = hyprctl dispatch dpms off;
-                    on-resume = hyprctl dispatch dpms on;
+                    on-timeout = "hyprctl dispatch dpms off";
+                    on-resume = "hyprctl dispatch dpms on";
                 }
-                listener {
+                {
                     # Suspend
                     timeout = 0;
                 }

@@ -33,20 +33,17 @@ in
         enable = true;
         enableCompletion = true;
         initExtra = "nitch";
-        shellAliases = {
-            inherit aliases;
+        shellAliases = aliases // {
             reload = "clear && source ~/.bashrc";
             venv = ". ./.venv/bin/activate";
         };
     };
     programs.fish = {
         enable = true;
-        enableCompletion = true;
         shellInitLast = "nitch";
-        shellAliases = {
-            inherit aliases;
+        shellAliases = aliases // {
             reload = "clear && source ~/.config/fish/config.fish";
             venv = ". ./.venv/bin/activate.fish";
         };
-    }
+    };
 }

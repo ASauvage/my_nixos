@@ -1,9 +1,9 @@
-{ inputs, pkgs, pkgs-unstable, pkgsags, userSettings, ... }:
+{ config, inputs, pkgs, pkgs-unstable, pkgsags, userSettings, ... }:
 
 {
     imports = [
         ./hyprland/hyprland.nix
-        ./ags/ags.nix
+        ( import ./ags/ags.nix { inherit inputs pkgs; })
         ./app/browser/firefox.nix
         ./app/anyrun.nix
         ./app/foot.nix
@@ -11,7 +11,7 @@
         ./app/vim.nix
         ./lang/python/python.nix
         ./shell/cli.nix
-        ./shell/cli-pkgs
+        ./shell/cli-pkgs.nix
         ./shell/starship.nix
         ./pkgs.nix
     ];
@@ -52,7 +52,6 @@
 
     home.sessionVariables = {
         EDITOR = userSettings.editor;
-        SPAWNEDITOR = userSettings.spawnEditor;
         TERMINAL = userSettings.term;
         BROWSER = userSettings.browser;
 

@@ -21,9 +21,9 @@
         systemSettings = {
             system = "x86_64-linux";            # system arch
             hostname = "nixos";                 # hostname
-            profile = "personal";               # select a profile defined from my profiles directory
             timezone = "Europe/Paris";          # select timezone
-            locale = "en_US.UTF-8";             # select locale
+            defaultLocale = "en_US.UTF-8";      # select default local
+            locale = "fr_FR.UTF-8";             # select locale
             authorizedKeys = [];                # authorized ssh keys
         };
 

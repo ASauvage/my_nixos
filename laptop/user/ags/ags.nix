@@ -2,7 +2,7 @@
 
 {
     imports = [
-        inputs.ags.homeManagerModules.default
+        inputs.agspkgs.homeManagerModules.default
     ];
 
     programs.ags = {
@@ -11,17 +11,15 @@
 
         # additional packages to add to gjs's runtime
         extraPackages = with pkgs; [
-            inputs.ags.packages.${pkgs.system}.battery
-            inputs.ags.packages.${pkgs.system}.bluetooth
-            inputs.ags.packages.${pkgs.system}.cava
-            inputs.ags.packages.${pkgs.system}.notifd
-            inputs.ags.packages.${pkgs.system}.
-            inputs.ags.packages.${pkgs.system}.
-            inputs.ags.packages.${pkgs.system}.hyprland
-            inputs.ags.packages.${pkgs.system}.mpris
-            inputs.ags.packages.${pkgs.system}.network
-            inputs.ags.packages.${pkgs.system}.tray
-            inputs.ags.packages.${pkgs.system}.wireplumber
+            inputs.agspkgs.packages.${pkgs.system}.battery
+            inputs.agspkgs.packages.${pkgs.system}.bluetooth
+            inputs.agspkgs.packages.${pkgs.system}.cava
+            inputs.agspkgs.packages.${pkgs.system}.notifd
+            inputs.agspkgs.packages.${pkgs.system}.hyprland
+            inputs.agspkgs.packages.${pkgs.system}.mpris
+            inputs.agspkgs.packages.${pkgs.system}.network
+            inputs.agspkgs.packages.${pkgs.system}.tray
+            inputs.agspkgs.packages.${pkgs.system}.wireplumber
         ];
     };
 }

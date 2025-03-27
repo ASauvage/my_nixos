@@ -12,33 +12,40 @@
 
     programs.home-manager.enable = true;
 
-    home.packages = with pkgs; [
-        steam
-    ];
+    home.packages = with pkgs; [];
 
-    xdg.enable = true;
-    xdg.userDirs = {
+    xdg = {
         enable = true;
-        createDirectories = true;
-        music = "${config.home.homeDirectory}/Media/Music";
-        videos = "${config.home.homeDirectory}/Media/Videos";
-        pictures = "${config.home.homeDirectory}/Media/Pictures";
-        templates = "${config.home.homeDirectory}/Templates";
-        download = "${config.home.homeDirectory}/Downloads";
-        documents = "${config.home.homeDirectory}/Documents";
-        desktop = null;
-        publicShare = null;
-        extraConfig = {
-            XDG_DOTFILES_DIR = "${config.home.homeDirectory}/.dotfiles";
-            XDG_ARCHIVE_DIR = "${config.home.homeDirectory}/Archive";
+        userDirs = {
+            enable = true;
+            createDirectories = true;
+            music = "${config.home.homeDirectory}/Media/Music";
+            videos = "${config.home.homeDirectory}/Media/Videos";
+            pictures = "${config.home.homeDirectory}/Media/Pictures";
+            templates = "${config.home.homeDirectory}/Templates";
+            download = "${config.home.homeDirectory}/Downloads";
+            documents = "${config.home.homeDirectory}/Documents";
+            desktop = null;
+            publicShare = null;
+            extraConfig = {
+                XDG_DOTFILES_DIR = "${config.home.homeDirectory}/.dotfiles";
+                XDG_ARCHIVE_DIR = "${config.home.homeDirectory}/Archive";
+            };
         };
+    };
+
+    services.udiskie = {
+        enable = true;
+        tray = "always";
     };
 
     home.sessionVariables = {
         EDITOR = userSettings.editor;
         SPAWNEDITOR = userSettings.spawnEditor;
-        TERM = userSettings.term;
+        TERMINAL = userSettings.term;
         BROWSER = userSettings.browser;
+
+        HYPRSHOT_DIR = "${config.home.homeDirectory}/Media/Pictures/Screenshots";
     };
 
     # Nicely reload system units when changing configs

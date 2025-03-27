@@ -22,14 +22,10 @@
         };
     };
 
-    services.xserver.excludePackages = [ pkgs.xterm ];
-
-    services.xserver = {
-        displayManager.sddm = {
-            enable = true;
-            package = pkgs.sddm;
-            wayland.enable = true;
-            theme = "where_is_my_sddm_theme_qt5";
-        };
+    services.displayManager.sddm = {
+        enable = true;
+        package = pkgs.sddm;
+        wayland.enable = true;
+        theme = "where_is_my_sddm_theme";
     };
 }

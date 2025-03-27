@@ -8,7 +8,7 @@
         ./hardware/kernel.nix
         ./hardware/power.nix
         ./hardware/time.nix
-        ./hardware/opengl.nix
+        ./hardware/graphics.nix
         ./hardware/printer.nix
         ./hardware/bluetooth.nix
         ./wm/hyprland.nix
@@ -71,6 +71,7 @@
         wget
         fish
         git
+        nautilus
         home-manager
     ];
 

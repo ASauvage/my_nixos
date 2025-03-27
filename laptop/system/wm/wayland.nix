@@ -15,10 +15,14 @@
         libnotify
         brightnessctl
         (where-is-my-sddm-theme.override {
-            variants = ["qt5"];
+            variants = ["qt6"];
             themeConfig.General = {
                 cursorBlinkAnimation = true;
                 passwordCursorColor = "";
+                hideCursor = false;
+                # showSessionsByDefault=false
+                # showUsersByDefault=false
+                # showUserRealNameByDefault=true
             };
         })
     ];

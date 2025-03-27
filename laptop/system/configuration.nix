@@ -14,7 +14,7 @@
         ./wm/hyprland.nix
         ( import ./app/docker.nix { storageDriver = null; inherit pkgs userSettings lib; } )
         ./app/steam.nix
-        ( import ../../system/security/ssh.nix { authorized = systemSettings.authorizedKeys; inherit userSettings; })
+        ( import ./security/ssh.nix { authorized = systemSettings.authorizedKeys; inherit userSettings; })
         ./security/firewall.nix
         ./security/automount.nix
     ];

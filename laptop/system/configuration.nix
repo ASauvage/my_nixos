@@ -12,7 +12,7 @@
         ./hardware/printer.nix
         ./hardware/bluetooth.nix
         ./wm/hyprland.nix
-        ( import ./app/docker.nix { storageDriver = null; inherit pkgs userSettings lib; } )
+        ( import ./app/docker.nix { storageDriver = null; inherit pkgs userSettings lib; })
         ./app/steam.nix
         ( import ./security/ssh.nix { authorized = systemSettings.authorizedKeys; inherit userSettings; })
         ./security/firewall.nix
@@ -44,7 +44,7 @@
     networking.networkmanager.enable = true;
 
     time.timeZone = systemSettings.timezone;
-    i18n.defaultLocale = systemSettings.locale;
+    i18n.defaultLocale = systemSettings.defaultLocale;
     i18n.extraLocaleSettings = {
         LC_ADDRESS = systemSettings.locale;
         LC_IDENTIFICATION = systemSettings.locale;
@@ -64,6 +64,15 @@
         packages = [];
         uid = 1000;
     };
+
+    # System packages
+    environment.systemPackages = with pkgs; [
+        vim
+        wget
+        fish
+        git
+        home-manager
+    ];
 
     environment.shells = with pkgs; [ fish ];
     users.defaultUserShell = pkgs.fish;

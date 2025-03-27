@@ -34,15 +34,15 @@ in
         enableCompletion = true;
         initExtra = "nitch";
         shellAliases = aliases // {
-            reload = "clear && source ~/.bashrc";
+            reload = "clear && nitch";
             venv = ". ./.venv/bin/activate";
         };
     };
     programs.fish = {
         enable = true;
-        shellInitLast = "nitch";
+        interactiveShellInit = "nitch";
         shellAliases = aliases // {
-            reload = "clear && source ~/.config/fish/config.fish";
+            reload = "clear && nitch";
             venv = ". ./.venv/bin/activate.fish";
         };
     };

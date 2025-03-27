@@ -25,6 +25,7 @@
 
     home.packages = with pkgs; [
         vscode
+        webcord
     ];
 
     xdg = {

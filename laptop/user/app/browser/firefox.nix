@@ -9,13 +9,16 @@
             "fr-FR"
         ];
         policies = {
+            DisableProfileImport = true;
             DefaultDownloadDirectory = "\${home}/Downloads";
-            DisplayMenuBar = "always";
+            DisplayMenuBar = "default-off";
+            DisplayBookmarksToolbar = "always";
             DisableTelemetry = true;
             DisableFirefoxStudies = true;
             DisableSetDesktopBackground = true;
             DisablePocket = true;
             OfferToSaveLogins = false;
+            StartPage = "previous-session";
             Preferences = {
                 "extensions.pocket.enabled" = "lock-false";
                 "browser.newtabpage.pinned" = "lock-empty-string";

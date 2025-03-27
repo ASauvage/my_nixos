@@ -2,7 +2,7 @@
 
 {
     imports = [
-        /pipewire.nix
+        ./pipewire.nix
         ./fonts.nix
     ];
 
@@ -19,7 +19,7 @@
             themeConfig.General = {
                 cursorBlinkAnimation = true;
                 passwordCursorColor = "";
-            }
+            };
         })
     ];
 

@@ -9,12 +9,12 @@
         ./hardware/power.nix
         ./hardware/time.nix
         ./hardware/opengl.nix
-        ./hardware/printing.nix
+        ./hardware/printer.nix
         ./hardware/bluetooth.nix
         ./wm/hyprland.nix
-        ( import ./app/docker.nix {storageDriver = null; inherit pkgs userSettings lib;} )
+        ( import ./app/docker.nix { storageDriver = null; inherit pkgs userSettings lib; } )
         ./app/steam.nix
-        ./security/ssh.nix
+        ( import ../../system/security/ssh.nix { authorized = systemSettings.authorizedKeys; inherit userSettings; })
         ./security/firewall.nix
         ./security/automount.nix
     ];

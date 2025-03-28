@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, userSettings, ... }:
 
 {
     home.packages = with pkgs; [
@@ -22,7 +22,6 @@
         '')
         (pkgs.writeScriptBin "rebuild" ''
             #!/bin/sh
-
             function show_help() {
                 echo "Usage: $0 [arguments]"
                 echo ""
@@ -67,6 +66,12 @@
                         ;;
                 esac
             done
+        '')
+        (pkgs.writeScriptBin "update-dotfiles" ''
+            #!/bin/sh
+            cd ${userSettings.dotfilesDir}
+            git pull
+            exit 0
         '')
     ];
 }

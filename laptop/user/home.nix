@@ -11,7 +11,7 @@
         ./app/vim.nix
         ./lang/python/python.nix
         ./shell/cli.nix
-        ./shell/cli-pkgs.nix
+        ( import ./shell/cli-pkgs.nix { inherit userSettings pkgs; })
         ./shell/starship.nix
         ./pkgs.nix
     ];

@@ -45,8 +45,8 @@ fi
 if [ -n "$location" ]; then
     echo "Location chosen: $location"
 else
-    echo "No location chosen, location use: '~/.dotfiles'"
-    location="~/.dotfiles"
+    location=$(eval echo ~$USER)"/.dotfiles"
+    echo "No location chosen, location use: '$location'"
 fi
 
 # Clone dotfiles
@@ -63,7 +63,8 @@ sed -i "0,/Alex/s//$(getent passwd $(whoami) | cut -d ':' -f 5 | cut -d ',' -f 1
 sed -i "s/emmet@librephoenix.com//" $location/$profile/flake.nix
 sed -i "s+~/.dotfiles+$location+g" $location/$profile/flake.nix
 
-answer = ""
+answer=""
+
 while [[ ! "$answer" =~ ^[Yy]$ ]]; do
     echo -e "Rebuild system with this parameters:\n# ---- SYSTEM SETTINGS ---- #"
     awk '/systemSettings = {/,/};/ {if ($0 !~ /systemSettings = \{/) print}' $location/$profile/flake.nix | sed '/^ *\}/d' | sed 's/^[ \t]*//'
@@ -81,6 +82,7 @@ while [[ ! "$answer" =~ ^[Yy]$ ]]; do
     else
         echo "invalid response!"
     fi
+done
 
 # Update flake
 read -p "Do you want to update flake lockfile? (y/n): " answer

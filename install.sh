@@ -1,33 +1,96 @@
-#!/bin/sh
+#! bin/sh
 
-TEMP_DIR=$(mktemp -d)
-REPO_URL="https://github.com/ASauvage/my_nixos.git"
+# Default values
+profile=""
+location=""
 
-echo "Cloning repository..."
-git clone --depth 1 "$REPO_URL" "$TEMP_DIR" || exit 1
-
-echo "Copying files to /etc/nixos..."
-sudo cp "/etc/nixos/hardware-configuration.nix" "$TEMP_DIR"/nix
-sudo rm -rf "/etc/nixos/"
-sudo mkdir "/etc/nixos"
-sudo cp -rf "$TEMP_DIR"/nix/* /etc/nixos/ || {
-    echo "Error: Failed to copy files"
-    rm -rf "$TEMP_DIR"
-    exit 1
-}
-sudo cp -rf "$TEMP_DIR"/dotfiles/ /etc/nixos/dotfiles || {
-    echo "Error: Failed to copy files"
-    rm -rf "$TEMP_DIR"
-    exit 1
+# Function to display help message
+function show_help() {
+  echo "Usage: $0 [options]"
+  echo ""
+  echo "Options:"
+  echo "  -h, --help       Display this help message"
+  echo "  -p, --profile    Choose the profile"
+  echo "  -l, --location   Choose the location (default: '~/.dotfiles')"
 }
 
-echo "Cleaning up..."
-rm -rf "$TEMP_DIR"
-rm -rf "/etc/nixos/dotfiles/"
+# Parse the command line options
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    -h|--help)
+      show_help
+      exit 0
+      ;;
+    -p|--profile)
+      profile="$2"
+      shift 2
+      ;;
+    -l|--location)
+      location="$2"
+      shift 2
+      ;;
+    *)
+      echo "Unknown option: $1"
+      show_help
+      exit 1
+      ;;
+  esac
+done
 
-echo "Configuration added successfully!"
-
-read -p "Do you wish to rebuild nixos? [Yn]: " yn
-if [[ $yn =~ ^[Yy]$ ]]; then
-    sudo nixos-rebuild switch
+# Output chosen profile and location if available
+if [ -n "$profile" ]; then
+  echo "Profile chosen: $profile"
+else
+  echo "No profile chosen"
+  exit 1
 fi
+
+if [ -n "$location" ]; then
+  echo "Location chosen: $location"
+else
+  echo "No location chosen, location use: '~/.dotfiles'"
+  location="~/.dotfiles"
+fi
+
+# Clone dotfiles
+echo "Cloning dotfiles..."
+nix-shell -p git --command "git clone git@github.com:ASauvage/my_nixos.git $location"
+
+# Generate hardware config for new system
+echo "Generate hardware config..."
+sudo nixos-generate-config --show-hardware-config > $location/hardware-configuration.nix
+
+# Patch flake.nix with different username/name and remove email by default
+sed -i "0,/alex/s//$(whoami)/" $location/$profile/flake.nix
+sed -i "0,/Alex/s//$(getent passwd $(whoami) | cut -d ':' -f 5 | cut -d ',' -f 1)/" $location/$profile/flake.nix
+sed -i "s/emmet@librephoenix.com//" $location/$profile/flake.nix
+sed -i "s+~/.dotfiles+$location+g" $location/$profile/flake.nix
+
+answer = ""
+while [[ ! "$answer" =~ ^[Yy]$ ]]; do
+    echo -e "Rebuild system with this parameters:\n# ---- SYSTEM SETTINGS ---- #"
+    awk '/systemSettings = {/,/};/ {if ($0 !~ /systemSettings = \{/) print}' $location/$profile/flake.nix | sed '/^ *\}/d' | sed 's/^[ \t]*//'
+    echo -e "\n# ----- USER SETTINGS ----- #"
+    awk '/userSettings = {/,/};/ {if ($0 !~ /userSettings = \{/) print}' $location/$profile/flake.nix | sed '/^ *\}/d' | sed 's/^[ \t]*//'
+
+    read -p "Do you want to proceed? (y/n): " answer
+
+    if [[ "$answer" =~ ^(n|N)$ ]]; then
+        # Open up editor to manually edit flake.nix before install
+        if [ -z "$EDITOR" ]; then
+            EDITOR=nano;
+        fi
+        $EDITOR $location/$profile/flake.nix;
+    else
+        echo "invalid response!"
+    fi
+
+# Rebuild system
+echo "Rebuild system..."
+sudo nixos-rebuild switch --flake $location/$profile/#system;
+
+# Install and build home-manager configuration
+echo "Build home-manager..."
+nix run home-manager/master --extra-experimental-features nix-command --extra-experimental-features flakes -- switch --flake $location/$profile/#user;
+
+echo "All set! Now, just one final step: log out!"

@@ -2,6 +2,21 @@
 
 This repository contains my NixOS flake configuration for setting up my laptop and server.
 
+## About This Configuration
+
+### Channels Used
+
+- [NixOS 24.11 Stable](https://github.com/nixos/nixpkgs/tree/nixos-24.11)
+- [NixOS Unstable](https://github.com/nixos/nixpkgs/tree/nixos-unstable)
+- [Aylur AGS](https://github.com/aylur/ags)
+- [Home Manager 24.11](https://github.com/nix-community/home-manager/tree/release-24.11)
+
+### Last Flake Update
+
+| Laptop     | Server     |
+| :--------: | :--------: |
+| 2025-03-27 | Never      |
+
 ## Install the OS
 
 - Install NixOS through the standard process:

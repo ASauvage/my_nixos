@@ -1,55 +1,52 @@
-#! bin/sh
+#!/bin/sh
 
-# Default values
 profile=""
 location=""
 
-# Function to display help message
 function show_help() {
-  echo "Usage: $0 [options]"
-  echo ""
-  echo "Options:"
-  echo "  -h, --help       Display this help message"
-  echo "  -p, --profile    Choose the profile"
-  echo "  -l, --location   Choose the location (default: '~/.dotfiles')"
+    echo "Usage: $0 [options]"
+    echo ""
+    echo "Options:"
+    echo "  -h, --help       Display this help message"
+    echo "  -p, --profile    Choose the profile"
+    echo "  -l, --location   Choose the location (default: '~/.dotfiles')"
 }
 
-# Parse the command line options
 while [[ $# -gt 0 ]]; do
-  case "$1" in
-    -h|--help)
-      show_help
-      exit 0
-      ;;
-    -p|--profile)
-      profile="$2"
-      shift 2
-      ;;
-    -l|--location)
-      location="$2"
-      shift 2
-      ;;
-    *)
-      echo "Unknown option: $1"
-      show_help
-      exit 1
-      ;;
-  esac
+    case "$1" in
+        -h|--help)
+            show_help
+            exit 0
+            ;;
+        -p|--profile)
+            profile="$2"
+            shift 2
+            ;;
+        -l|--location)
+            location="$2"
+            shift 2
+            ;;
+        *)
+            echo "Unknown option: $1"
+            show_help
+            exit 1
+        ;;
+    esac
 done
 
 # Output chosen profile and location if available
 if [ -n "$profile" ]; then
-  echo "Profile chosen: $profile"
+    echo "Profile chosen: $profile"
 else
-  echo "No profile chosen"
-  exit 1
+    echo "No profile chosen"
+    exit 1
 fi
 
 if [ -n "$location" ]; then
-  echo "Location chosen: $location"
+    echo "Location chosen: $location"
 else
-  echo "No location chosen, location use: '~/.dotfiles'"
-  location="~/.dotfiles"
+    echo "No location chosen, location use: '~/.dotfiles'"
+    location="~/.dotfiles"
 fi
 
 # Clone dotfiles

@@ -69,7 +69,7 @@
                 {
                     Title = "Gmail";
                     URL = "https://mail.google.com/mail/u/0/#inbox";
-                    Favicon = "https://mail.google.com/favicon.ico";
+                    Favicon = "https://ssl.gstatic.com/ui/v1/icons/mail/rfr/gmail.ico";
                     Placement = "toolbar";
                 }
                 {

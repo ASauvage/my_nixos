@@ -25,6 +25,9 @@
     services.displayManager.sddm = {
         enable = true;
         package = pkgs.kdePackages.sddm;
+        extraPackages = [
+            pkgs.kdePackages.qt5compat
+        ];
         wayland.enable = true;
         theme = "where_is_my_sddm_theme";
     };

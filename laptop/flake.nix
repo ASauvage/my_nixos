@@ -32,7 +32,7 @@
             username = "alex";
             name = "Alex";
             email = "a.sauvagepotel@gmail.com";
-            dotfilesDir = "~/.dotfiles";
+            dotfilesDir = "/home/alex/.dotfiles";
             browser = "firefox";
             term = "foot";
             editor = "vim";

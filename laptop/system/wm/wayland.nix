@@ -31,7 +31,7 @@
                 passwordInputCursorVisible = true;
                 # Font size of password (in points)
                 passwordFontSize = 96;
-                passwordCursorColor = "";
+                passwordCursorColor = "white";
                 passwordTextColor = "";
                 # Allow blank password (e.g., if authentication is done by another PAM module)
                 passwordAllowEmpty = false;

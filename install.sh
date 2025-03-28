@@ -85,6 +85,15 @@ while [[ ! "$answer" =~ ^[Yy]$ ]]; do
         echo "invalid response!"
     fi
 
+# Update flake
+read -p "Do you want to update flake lockfile? (y/n): " answer
+if [[ "$answer" =~ ^(y|Y)$ ]]; then
+    echo "Updating lockfile..."
+    nix flake update --flake $location/$profile
+else
+    echo "Skip lockfile update"
+fi
+
 # Rebuild system
 echo "Rebuild system..."
 sudo nixos-rebuild switch --flake $location/$profile/#system;

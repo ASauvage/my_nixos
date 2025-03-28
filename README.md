@@ -63,7 +63,10 @@ cd ~/.dotfiles  # Adjust the path as needed
 # Generate hardware-configuration
 sudo nixos-generate-config --show-hardware-config > ./hardware-configuration.nix
 
-# Rebuild NixOS, replace `laptop` with `server` if needed
+# If you want to update lockfile, replace `laptop` with `server` if needed
+nix flake update --flake ~/.dotfiles/laptop
+
+# Rebuild NixOS
 sudo nixos-rebuild switch --flake ~/.dotfiles/laptop#system 
 
 # Rebuild home environment

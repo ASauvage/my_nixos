@@ -40,7 +40,10 @@ in
     };
     programs.fish = {
         enable = true;
-        interactiveShellInit = "nitch";
+        interactiveShellInit = ''
+            set fish_greeting
+            nitch
+        '';
         shellAliases = aliases // {
             reload = "clear && nitch";
             venv = ". ./.venv/bin/activate.fish";

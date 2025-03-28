@@ -1,55 +1,58 @@
-# My NixOS flake configurations
+# My NixOS Flake Configurations
 
 This repository contains my NixOS flake configuration for setting up my laptop and server.
 
+## Install the OS
 
-# Install the OS
+- Install NixOS through the standard process:
+  - Create a user and a password.
+  - Do not enable any desktop environment (if for a server; otherwise, configure as desired).
+  - Complete the installation.
+- Restart and log in to your user account.
 
-- Install NixOS trough the standard process
-  - Create an user and a password.
-  - Do not enable any desktop env (if for server, otherwise do as you please)
-  - Install
-- Restart and login to your user
+## Install the Configuration
 
-# Install the config
-## with script
+### Using the Script
 
-Execute the following command to pull and use the install.sh script from this repository :
+Execute the following command to pull and use the `install.sh` script from this repository:
+
 ```sh
 curl -sSL https://raw.githubusercontent.com/ASauvage/my_nixos/main/install.sh | nix-shell -p git --run "sh -s -- --profile laptop"
 ```
-Change "laptop" by "server" to select the configuration to be used.
 
-This script will install th flake at `~/.dotfiles` custom commnd to rebuild will be create such as:
+Replace `laptop` with `server` to select the appropriate configuration.
+
+This script will install the flake at `~/.dotfiles`. A custom command will be created for rebuilding:
+
 - ```sh
-  rebuild --home      # will perform a home-manager switch
+  rebuild --home      # Performs a home-manager switch
   ```
 
 - ```sh
-  rebuild --system    # will perform a nixos-rebuild switch
+  rebuild --system    # Performs a nixos-rebuild switch
   ```
 
 - ```sh
-  rebuild --all       # will perform a nixos-rebuild switch and home-manager switch
+  rebuild --all       # Performs both a nixos-rebuild switch and a home-manager switch
   ```
 
-**The script will edit the configurations accordingly to your setup**
+**The script will adjust configurations according to your setup.**
 
-## manually
+### Manual Installation
 
-Clone the repository in a safe location (`~./dotfiles` for example) and run the following command:
+Clone the repository to a safe location (e.g., `~/.dotfiles`) and run the following commands:
 
 ```sh
-cd ~/.dotfiles  # Change location according to your location
+cd ~/.dotfiles  # Adjust the path as needed
 
-# generate hardware-configuration
+# Generate hardware-configuration
 sudo nixos-generate-config --show-hardware-config > ./hardware-configuration.nix
 
-# rebuild NixOS
-sudo nixos-rebuild switch --flake ~/.dotfiles/laptop#system;  # Feel free to change `laptop` by server
+# Rebuild NixOS, replace `laptop` with `server` if needed
+sudo nixos-rebuild switch --flake ~/.dotfiles/laptop#system 
 
-# rebuild home
-nix run home-manager/master --extra-experimental-features nix-command --extra-experimental-features flakes -- switch --flake ~/.dotfiles/laptop#user;
+# Rebuild home environment
+nix run home-manager/master --extra-experimental-features nix-command --extra-experimental-features flakes -- switch --flake ~/.dotfiles/laptop#user
 ```
 
-**Don't forget to customise the `flake.nix` inside your configuration profile**
+**Don't forget to customize the `flake.nix` inside your configuration profile.**

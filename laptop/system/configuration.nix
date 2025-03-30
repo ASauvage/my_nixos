@@ -73,6 +73,7 @@
         git
         nautilus
         home-manager
+        direnv
     ];
 
     environment.shells = with pkgs; [ fish ];

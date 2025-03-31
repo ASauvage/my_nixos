@@ -68,7 +68,10 @@
         systemd.enable = true;
     };
 
-    xdg.configFile."hypr/hyprland/".source = ./hypr;
+    xdg.configFile."hypr/hyprland/" = {
+        source = ./hypr;
+        recursive = true;
+    };
 
     home.packages = (with pkgs; [
         kitty

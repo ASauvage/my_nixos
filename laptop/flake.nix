@@ -5,8 +5,8 @@
         nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
         nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
-        agspkgs = {
-            url = "github:aylur/ags";
+        hyprpanel = {
+            url = "github:Jas-SinghFSU/HyprPanel";
             inputs.nixpkgs.follows = "nixpkgs";
         };
 
@@ -52,13 +52,6 @@
                 allowUnfreePredicate = (_: true);
             };
         };
-        pkgsags = import inputs.agspkgs {
-            system = systemSettings.system;
-            config = {
-                allowUnfree = true;
-                allowUnfreePredicate = (_: true);
-            };
-        };
     in {
         nixosConfigurations = {
             system = inputs.nixpkgs.lib.nixosSystem {
@@ -66,7 +59,6 @@
                 specialArgs = {
                     inherit inputs;
                     inherit pkgs-unstable;
-                    inherit pkgsags;
                     inherit systemSettings;
                     inherit userSettings;
                 };
@@ -79,10 +71,10 @@
         homeConfigurations = {
             user = inputs.home-manager.lib.homeManagerConfiguration {
                 inherit pkgs;
+
                 extraSpecialArgs = {
                     inherit inputs;
                     inherit pkgs-unstable;
-                    inherit pkgsags;
                     inherit systemSettings;
                     inherit userSettings;
                 };

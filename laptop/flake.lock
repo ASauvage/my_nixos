@@ -1,18 +1,19 @@
 {
   "nodes": {
-    "agspkgs": {
+    "ags": {
       "inputs": {
         "astal": "astal",
         "nixpkgs": [
+          "hyprpanel",
           "nixpkgs"
         ]
       },
       "locked": {
-        "lastModified": 1738087375,
-        "narHash": "sha256-GLyNtU9A2VN22jNRHZ2OXuFfTJLh8uEVVt+ftsKUX0c=",
+        "lastModified": 1736090999,
+        "narHash": "sha256-B5CJuHqfJrzPa7tObK0H9669/EClSHpa/P7B9EuvElU=",
         "owner": "aylur",
         "repo": "ags",
-        "rev": "a6a7a0adb17740f4c34a59902701870d46fbb6a4",
+        "rev": "5527c3c07d92c11e04e7fd99d58429493dba7e3c",
         "type": "github"
       },
       "original": {
@@ -24,16 +25,17 @@
     "astal": {
       "inputs": {
         "nixpkgs": [
-          "agspkgs",
+          "hyprpanel",
+          "ags",
           "nixpkgs"
         ]
       },
       "locked": {
-        "lastModified": 1737670815,
-        "narHash": "sha256-ZCxxshGN7XooabArcoGkYSNx5yVunqjKJi2aTv6cznI=",
+        "lastModified": 1735172721,
+        "narHash": "sha256-rtEAwGsHSppnkR3Qg3eRJ6Xh/F84IY9CrBBLzYabalY=",
         "owner": "aylur",
         "repo": "astal",
-        "rev": "127e9cdcbf173846a3c40ddc0abfbb038df48042",
+        "rev": "6c84b64efc736e039a8a10774a4a1bf772c37aa2",
         "type": "github"
       },
       "original": {
@@ -60,6 +62,27 @@
         "owner": "nix-community",
         "ref": "release-24.11",
         "repo": "home-manager",
+        "type": "github"
+      }
+    },
+    "hyprpanel": {
+      "inputs": {
+        "ags": "ags",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1743311006,
+        "narHash": "sha256-LfKnTg1Ic17d5yPIqmMQyyHTKjMC4a82/zLdKmooayE=",
+        "owner": "Jas-SinghFSU",
+        "repo": "HyprPanel",
+        "rev": "3bcd3c4710fc025bbe403948f10c3922a8bf5193",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Jas-SinghFSU",
+        "repo": "HyprPanel",
         "type": "github"
       }
     },
@@ -97,8 +120,8 @@
     },
     "root": {
       "inputs": {
-        "agspkgs": "agspkgs",
         "home-manager": "home-manager",
+        "hyprpanel": "hyprpanel",
         "nixpkgs": "nixpkgs",
         "nixpkgs-unstable": "nixpkgs-unstable"
       }

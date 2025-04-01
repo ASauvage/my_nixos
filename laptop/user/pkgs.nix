@@ -7,6 +7,6 @@
         vscode
         webcord
         spotify
-        gnome-calculator
+        qalculate-gtk
     ]);
 }

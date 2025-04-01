@@ -8,5 +8,7 @@
         webcord
         spotify
         gnome-calculator
+        wf-recorder
+        power-profiles-daemon
     ]);
 }

@@ -6,6 +6,7 @@
         ( import ./hyprpanel/hyprpanel.nix { inherit inputs pkgs userSettings; })
         ./app/browser/firefox.nix
         ./app/anyrun.nix
+        ./app/rofi.nix
         ./app/foot.nix
         ./app/git.nix
         ./app/vim.nix
@@ -22,14 +23,6 @@
     };
 
     programs.home-manager.enable = true;
-
-    home.packages = with pkgs; [
-        vscode
-        webcord
-        spotify
-        gnome-calculator
-        rofi
-    ];
 
     xdg = {
         enable = true;

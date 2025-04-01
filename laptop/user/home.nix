@@ -26,6 +26,8 @@
     home.packages = with pkgs; [
         vscode
         webcord
+        spotify
+        rofi
     ];
 
     xdg = {

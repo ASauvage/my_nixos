@@ -20,7 +20,7 @@
 
         # Import a theme from './themes/*.json'.
         # Default: ""
-        theme = "gruvbox_split";
+        theme = "";
 
         # Override the final config with an arbitrary set.
         # Useful for overriding colors in your selected theme.
@@ -35,9 +35,19 @@
         layout = {
             "bar.layouts" = {
                 "0" = {
-                    left = [ "dashboard" "workspaces" ];
-                    middle = [ "media" ];
-                    right = [ "volume" "systray" "notifications" ];
+                    left = ["dashboard" "workspaces" "windowtitle"];
+                    middle = ["media"];
+                    right = ["systray" "bluetooth" "network" "volume" "battery" "clock" "notifications"];
+                };
+                "1" = {
+                    left = ["dashboard" "workspaces" "windowtitle"];
+                    middle = ["media"];
+                    right = ["volume" "clock" "notifications"];
+                };
+                "2" = {
+                    left = ["dashboard" "workspaces" "windowtitle"];
+                    middle = ["media"];
+                    right = ["volume" "clock" "notifications"];
                 };
             };
         };
@@ -55,24 +65,24 @@
                     label = true;
                     middleClick = "";
                     rightClick = "";
-                    scrollDown = "";
-                    scrollUp = "";
+                    scrollDown = "brightnessctl s 10%-";
+                    scrollUp = "brightnessctl s 10%+";
                 };
                 bluetooth = {
-                    label = true;
+                    label = false;
                     middleClick = "";
-                    rightClick = "";
+                    rightClick = ''bluetoothctl power ''$(bluetoothctl show | grep -q "Powered: yes" && echo off || echo on)'';
                     scrollDown = "";
                     scrollUp = "";
                 };
                 clock = {
-                    format = "%a %b %d  %I:%M:%S %p";
+                    format = "%d/%m/%y  %H:%M";
                     icon = "󰸗";
                     middleClick = "";
                     rightClick = "";
                     scrollDown = "";
                     scrollUp = "";
-                    showIcon = true;
+                    showIcon = false;
                     showTime = true;
                 };
                 customModules = {
@@ -232,7 +242,7 @@
                 };
                 launcher = {
                     autoDetectIcon = false;
-                    icon = "󰣇";
+                    icon = "";
                     middleClick = "";
                     rightClick = "";
                     scrollDown = "";
@@ -244,10 +254,10 @@
                     rightClick = "";
                     scrollDown = "";
                     scrollUp = "";
-                    show_active_only = false;
+                    show_active_only = true;
                     show_label = true;
                     truncation = true;
-                    truncation_size = 30;
+                    truncation_size = 45;
                 };
                 network = {
                     label = true;
@@ -255,9 +265,9 @@
                     rightClick = "";
                     scrollDown = "";
                     scrollUp = "";
-                    showWifiInfo = false;
+                    showWifiInfo = true;
                     truncation = true;
-                    truncation_size = 7;
+                    truncation_size = 15;
                 };
                 notifications = {
                     hideCountWhenZero = false;
@@ -269,9 +279,9 @@
                 };
                 scrollSpeed = 5;
                 volume = {
-                    label = true;
+                    label = false;
                     middleClick = "";
-                    rightClick = "";
+                    rightClick = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
                     scrollDown = "${package}/bin/hyprpanel vol -5";
                     scrollUp = "${package}/bin/hyprpanel vol +5";
                 };
@@ -322,13 +332,14 @@
                 clock = {
                     time = {
                         hideSeconds = false;
-                        military = false;
+                        military = true;
                     };
                     weather = {
                         enabled = true;
                         interval = 60000;
-                        key = "";
-                        location = "Los Angeles";
+                        # https://www.weatherapi.com/my/
+                        key = "86b604335d28439e83e121205250104";
+                        location = "Paris";
                         unit = "imperial";
                     };
                 };
@@ -340,29 +351,29 @@
                         enabled = true;
                         left = {
                             directory1 = {
-                                command = "bash -c \"xdg-open $HOME/Downloads/\"";
+                                command = "bash -c \"nautilus $HOME/Downloads/\"";
                                 label = "󰉍 Downloads";
                             };
                             directory2 = {
-                                command = "bash -c \"xdg-open $HOME/Videos/\"";
+                                command = "bash -c \"nautilus $HOME/Media/Videos/\"";
                                 label = "󰉏 Videos";
                             };
                             directory3 = {
-                                command = "bash -c \"xdg-open $HOME/Projects/\"";
-                                label = "󰚝 Projects";
+                                command = "bash -c \"nautilus $HOME/repositories/\"";
+                                label = "󰚝 Repositories";
                             };
                         };
                         right = {
                             directory1 = {
-                                command = "bash -c \"xdg-open $HOME/Documents/\"";
+                                command = "bash -c \"nautilus $HOME/Documents/\"";
                                 label = "󱧶 Documents";
                             };
                             directory2 = {
-                                command = "bash -c \"xdg-open $HOME/Pictures/\"";
+                                command = "bash -c \"nautilus $HOME/Media/Pictures/\"";
                                 label = "󰉏 Pictures";
                             };
                             directory3 = {
-                                command = "bash -c \"xdg-open $HOME/\"";
+                                command = "bash -c \"nautilus $HOME/\"";
                                 label = "󱂵 Home";
                             };
                         };
@@ -382,9 +393,9 @@
                         enable = true;
                         left = {
                             shortcut1 = {
-                                command = "microsoft-edge-stable";
-                                icon = "󰇩";
-                                tooltip = "Microsoft Edge";
+                                command = "firefox";
+                                icon = "󰈹";
+                                tooltip = "Firefox";
                             };
                             shortcut2 = {
                                 command = "spotify-launcher";
@@ -392,7 +403,7 @@
                                 tooltip = "Spotify";
                             };
                             shortcut3 = {
-                                command = "discord";
+                                command = "webcord";
                                 icon = "";
                                 tooltip = "Discord";
                             };
@@ -409,7 +420,7 @@
                                 tooltip = "Color Picker";
                             };
                             shortcut3 = {
-                                command = "bash -c \"${../scripts/snapshot.sh}\"";
+                                command = "sleep 0.5 && hyprshot -m region";
                                 icon = "󰄀";
                                 tooltip = "Screenshot";
                             };
@@ -429,7 +440,7 @@
                     noMediaText = "No Media Currently Playing";
                 };
                 power = {
-                    confirmation = true;
+                    confirmation = false;
                     logout = "hyprctl dispatch exit";
                     lowBatteryNotification = false;
                     lowBatteryNotificationText = "Your battery is running low ($POWER_LEVEL %).\\n\\nPlease plug in your charger.";
@@ -614,7 +625,7 @@
                                 confirmation_scaling = 100;
                                 profile.radius = "0.4em";
                                 profile.size = "8.5em";
-                                scaling = 100;
+                                scaling = 80;
                             };
                             media = {
                                 card.tint = 85;
@@ -638,7 +649,7 @@
                         opacity = 100;
                         popover = {
                             radius = "0.4em";
-                            scaling = 100;
+                            scaling = 90;
                         };
                         progressbar.radius = "0.3rem";
                         scroller = {
@@ -662,7 +673,7 @@
                 };
                 font = {
                     name = "Ubuntu Nerd Font";
-                    size = "1.2rem";
+                    size = "1.1rem";
                     weight = 600;
                 };
                 matugen = false;

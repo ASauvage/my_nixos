@@ -6,7 +6,7 @@
         nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
         hyprpanel = {
-            url = "github:Jas-SinghFSU/HyprPanel";
+            url = "github:jas-singhfsu/hyprpanel";
             inputs.nixpkgs.follows = "nixpkgs";
         };
 
@@ -40,6 +40,9 @@
 
         pkgs = import inputs.nixpkgs {
             system = systemSettings.system;
+            overlays = [
+                inputs.hyprpanel.overlay
+            ];
             config = {
                 allowUnfree = true;
                 allowUnfreePredicate = (_: true);

@@ -3,7 +3,6 @@
 {
     imports = [
         ./hyprland/hyprland.nix
-        # ( import ./ags/ags.nix { inherit inputs pkgs; })
         ( import ./hyprpanel/hyprpanel.nix { inherit inputs pkgs; })
         ./app/browser/firefox.nix
         ./app/anyrun.nix

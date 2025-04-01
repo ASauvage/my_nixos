@@ -1,99 +1,192 @@
-/* MACOS SPOTLIGHT LIKE DARK THEME FOR ROFI  */
-/* Author: Newman Sanchez (https://github.com/newmanls) */
+/*******************************************************************************
+ * ROFI Color Theme
+ * User: Sheepla
+ * Copyleft: Sheepla
+ *******************************************************************************/
 
 * {
-    font:   "Montserrat 12";
+    highlight: bold italic underline;
+    scrollbar: true;
 
-    bg0:    #242424E6;
-    bg1:    #7E7E7E80;
-    bg2:    #0860f2E6;
+    palette-bg0: #1c2224;
+    palette-bg1: #283135;
+    palette-fg0: #e6e6e6;
+    palette-fg1: #c5ccdc;
+    palette-highlight: #e5514a;
 
-    fg0:    #DEDEDE;
-    fg1:    #FFFFFF;
-    fg2:    #DEDEDE80;
+    palette-urgent: #359b88;
 
-    background-color:   transparent;
-    text-color:         @fg0;
+    /* Base colors */
+    background:                  @palette-bg0;
+    background-color:            @background;
+    foreground:                  @palette-fg1;
 
-    margin:     0;
-    padding:    0;
-    spacing:    0;
+    /* Normal colors */
+    normal-background:           @background;
+    normal-foreground:           @foreground;
+    alternate-normal-background: @palette-bg1;
+    alternate-normal-foreground: @foreground;
+    selected-normal-background:  @palette-highlight;
+    selected-normal-foreground:  @palette-fg0;
+
+    /* Active window colors */
+    active-background:           @normal-background;
+    active-foreground:           @palette-highlight;
+    alternate-active-background: @alternate-normal-background;
+    alternate-active-foreground: @active-foreground;
+    selected-active-background:  @palette-highlight;
+    selected-active-foreground:  @normal-background;
+
+    /* Urgent colors */
+    urgent-background:           @background;
+    urgent-foreground:           @palette-urgent;
+    alternate-urgent-background: @alternate-normal-background;
+    alternate-urgent-foreground: @urgent-foreground;
+    selected-urgent-background:  @urgent-foreground;
+    selected-urgent-foreground:  @normal-background;
+
+    /* Other colors */
+    border-color:                @palette-bg1;
+    separatorcolor:              @border-color;
+    scrollbar-handle:            @palette-bg1;
 }
 
-window {
-    background-color:   @bg0;
+#window {
+    background-color:             @background-color;
+    children:                     [mainbox];
+}
 
-    location:       center;
-    width:          640;
-    border-radius:  8;
+#mainbox {
+    border:      0;
+    orientation: vertical;
+    children:    [ entry, message, listview, mode-switcher ];
+}
+
+#entry {
+    expand:     false;
+    text-color: @normal-foreground;
+    /* Padding between 2 lines */
+    padding:      10px 0px 10px 10px;
+    border:       0 0 2px;
+    border-color: @palette-bg1;
+    margin:       10px;
+}
+
+#sidebar {
+    expand: false;
+}
+
+/* Message box */
+#textbox {
+    horizontal-align:  0;
+    background-color:  @palette-bg1;
+    padding:           10px 20px 10px 20px ;                 
+    text-color:        @palette-fg0;
+}
+
+#listview {
+    border:        0px 0px 0px ;
+    border-color:  @palette-bg1;
+    padding:       0px 0px 5px 0px;
+    scrollbar:     @scrollbar;
+}
+
+
+#mode-switcher {
+    border:       3px 0px 0px 0px;
+    border-color: @palette-bg1;
+}
+
+button { 
+    padding: 5px; 
+}
+
+#button.selected {
+    background-color: @selected-normal-background;
+    text-color:       @selected-normal-foreground;
+}
+
+#element {
+    border:  0;
+    padding: 3px 10px 3px 10px ;                 
+}
+
+#element.normal.normal {
+    background-color: @normal-background;
+    text-color:       @normal-foreground;
+}
+
+#element.normal.urgent {
+    background-color: @urgent-background;
+    text-color:       @urgent-foreground;
+}
+
+#element.normal.active {
+    background-color: @active-background;
+    text-color:       @active-foreground;
+}
+
+#element.selected.normal {
+    background-color: @selected-normal-background;
+    text-color:       @selected-normal-foreground;
+}
+
+#element.selected.urgent {
+    background-color: @selected-urgent-background;
+    text-color:       @selected-urgent-foreground;
+}
+
+#element.selected.active {
+    background-color: @selected-active-background;
+    text-color:       @selected-active-foreground;
+}
+
+#element.alternate.normal {
+    background-color: @alternate-normal-background;
+    text-color:       @alternate-normal-foreground;
+}
+
+#element.alternate.urgent {
+    background-color: @alternate-urgent-background;
+    text-color:       @alternate-urgent-foreground;
+}
+
+#element.alternate.active {
+    background-color: @alternate-active-background;
+    text-color:       @alternate-active-foreground;
 }
 
 inputbar {
-    font:       "Montserrat 20";
-    padding:    12px;
-    spacing:    12px;
-    children:   [ icon-search, entry ];
+    spacing:    0;
+    text-color: @normal-foreground;
+    padding:    2px;
+    children:   [ textbox-prompt-sep, entry, case-indicator ];
 }
 
-icon-search {
+case-indicator,
+entry,
+button {
+    spacing:    0;
+    text-color: @normal-foreground;
+}
+
+button.selected {
+    background-color: @selected-normal-background;
+    text-color:       @selected-normal-foreground;
+}
+
+textbox-prompt-sep {
     expand:     false;
-    filename:   "search";
-    size: 28px;
+    str:        ":";
+    text-color: @normal-foreground;
+    margin:     0 0.3em 0 0;
 }
 
-icon-search, entry, element-icon, element-text {
-    vertical-align: 0.5;
+prompt {
+   padding:6px 9px;
+   background-color: @palette-bg1;
 }
 
-entry {
-    font:   inherit;
-
-    placeholder         : "Search";
-    placeholder-color   : @fg2;
-}
-
-message {
-    border:             2px 0 0;
-    border-color:       @bg1;
-    background-color:   @bg1;
-}
-
-textbox {
-    padding:    8px 24px;
-}
-
-listview {
-    lines:      10;
-    columns:    1;
-
-    fixed-height:   false;
-    border:         1px 0 0;
-    border-color:   @bg1;
-}
-
-element {
-    padding:            8px 16px;
-    spacing:            16px;
-    background-color:   transparent;
-}
-
-element normal active {
-    text-color: @bg2;
-}
-
-element alternate active {
-    text-color: @bg2;
-}
-
-element selected normal, element selected active {
-    background-color:   @bg2;
-    text-color:         @fg1;
-}
-
-element-icon {
-    size:   1em;
-}
-
-element-text {
-    text-color: inherit;
+#element-icon {
+    size: 18;
 }

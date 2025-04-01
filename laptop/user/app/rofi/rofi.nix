@@ -7,11 +7,14 @@
         cycle = false;
         plugins = (with pkgs;[
             rofi-calc
-            rofimoji
         ]);
         extraConfig = {
             modi = "drun,filebrowser,calc";
         };
-        theme = ./spotlight_dark.rasi;
+        # theme = ./spotlight_dark.rasi;
     };
+
+    home.packages = (with pkgs; [
+        rofimoji
+    ]);
 }

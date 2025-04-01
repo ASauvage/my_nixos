@@ -74,6 +74,7 @@
         nautilus
         home-manager
         direnv
+        gnome-system-monitor
     ];
 
     environment.shells = with pkgs; [ fish ];

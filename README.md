@@ -8,14 +8,14 @@ This repository contains my NixOS flake configuration for setting up my laptop a
 
 - [NixOS 24.11 Stable](https://github.com/nixos/nixpkgs/tree/nixos-24.11)
 - [NixOS Unstable](https://github.com/nixos/nixpkgs/tree/nixos-unstable)
-- [Aylur AGS](https://github.com/aylur/ags)
+- [Hyprpanel](https://github.com/jas-singhfsu/hyprpanel)
 - [Home Manager 24.11](https://github.com/nix-community/home-manager/tree/release-24.11)
 
 ### Last Flake Update
 
 | Laptop     | Server     |
 | :--------: | :--------: |
-| 2025-03-27 | Never      |
+| 2025-04-01 | Never      |
 
 ## Install the OS
 

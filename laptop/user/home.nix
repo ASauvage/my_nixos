@@ -3,9 +3,10 @@
 {
     imports = [
         ./hyprland/hyprland.nix
-        ( import ./ags/ags.nix { inherit inputs pkgs; })
+        ( import ./hyprpanel/hyprpanel.nix { inherit inputs pkgs userSettings; })
         ./app/browser/firefox.nix
         ./app/anyrun.nix
+        ./app/rofi/rofi.nix
         ./app/foot.nix
         ./app/git.nix
         ./app/vim.nix
@@ -22,11 +23,6 @@
     };
 
     programs.home-manager.enable = true;
-
-    home.packages = with pkgs; [
-        vscode
-        webcord
-    ];
 
     xdg = {
         enable = true;

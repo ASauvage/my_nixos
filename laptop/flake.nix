@@ -5,8 +5,8 @@
         nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
         nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
-        agspkgs = {
-            url = "github:aylur/ags";
+        hyprpanel = {
+            url = "github:jas-singhfsu/hyprpanel";
             inputs.nixpkgs.follows = "nixpkgs";
         };
 
@@ -36,23 +36,20 @@
             browser = "firefox";
             term = "foot";
             editor = "vim";
+            weatherApiKey = "";
         };
 
         pkgs = import inputs.nixpkgs {
             system = systemSettings.system;
+            overlays = [
+                inputs.hyprpanel.overlay
+            ];
             config = {
                 allowUnfree = true;
                 allowUnfreePredicate = (_: true);
             };
         };
         pkgs-unstable = import inputs.nixpkgs-unstable {
-            system = systemSettings.system;
-            config = {
-                allowUnfree = true;
-                allowUnfreePredicate = (_: true);
-            };
-        };
-        pkgsags = import inputs.agspkgs {
             system = systemSettings.system;
             config = {
                 allowUnfree = true;
@@ -66,7 +63,6 @@
                 specialArgs = {
                     inherit inputs;
                     inherit pkgs-unstable;
-                    inherit pkgsags;
                     inherit systemSettings;
                     inherit userSettings;
                 };
@@ -79,10 +75,10 @@
         homeConfigurations = {
             user = inputs.home-manager.lib.homeManagerConfiguration {
                 inherit pkgs;
+
                 extraSpecialArgs = {
                     inherit inputs;
                     inherit pkgs-unstable;
-                    inherit pkgsags;
                     inherit systemSettings;
                     inherit userSettings;
                 };

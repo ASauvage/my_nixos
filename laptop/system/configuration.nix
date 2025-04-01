@@ -33,7 +33,10 @@
     nixpkgs.config.allowUnfree = true;
 
     boot.loader = {
-        systemd-boot.enable = true;
+        systemd-boot = {
+            enable = true;
+            configurationLimit = 3;
+        };
         efi = {
             canTouchEfiVariables = true;
             efiSysMountPoint = "/boot";
@@ -74,6 +77,7 @@
         nautilus
         home-manager
         direnv
+        gnome-system-monitor
     ];
 
     environment.shells = with pkgs; [ fish ];

@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }:
+{ inputs, pkgs, userSettings, ... }:
 
 {
     imports = [
@@ -20,7 +20,7 @@
 
         # Import a theme from './themes/*.json'.
         # Default: ""
-        theme = "";
+        theme = "gruvbox_split";
 
         # Override the final config with an arbitrary set.
         # Useful for overriding colors in your selected theme.
@@ -315,7 +315,7 @@
                     scroll_speed = 5;
                     showAllActive = true;
                     showApplicationIcons = true;
-                    showWsIcons = false;
+                    showWsIcons = true;
                     show_icons = false;
                     show_numbered = false;
                     # spacing = 1;
@@ -338,9 +338,9 @@
                         enabled = true;
                         interval = 60000;
                         # https://www.weatherapi.com/my/
-                        key = "";
+                        key = userSettings.weatherApiKey;
                         location = "Paris";
-                        unit = "imperial";
+                        unit = "metric";
                     };
                 };
                 dashboard = {

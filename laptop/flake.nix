@@ -36,6 +36,7 @@
             browser = "firefox";
             term = "foot";
             editor = "vim";
+            weatherApiKey = "";
         };
 
         pkgs = import inputs.nixpkgs {

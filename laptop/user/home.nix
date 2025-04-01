@@ -3,7 +3,7 @@
 {
     imports = [
         ./hyprland/hyprland.nix
-        ( import ./hyprpanel/hyprpanel.nix { inherit inputs pkgs; })
+        ( import ./hyprpanel/hyprpanel.nix { inherit inputs pkgs userSettings; })
         ./app/browser/firefox.nix
         ./app/anyrun.nix
         ./app/foot.nix
@@ -27,6 +27,7 @@
         vscode
         webcord
         spotify
+        gnome-calculator
         rofi
     ];
 

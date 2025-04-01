@@ -254,7 +254,7 @@
                     rightClick = "";
                     scrollDown = "";
                     scrollUp = "";
-                    show_active_only = true;
+                    show_active_only = false;
                     show_label = true;
                     truncation = true;
                     truncation_size = 45;
@@ -282,8 +282,8 @@
                     label = false;
                     middleClick = "";
                     rightClick = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
-                    scrollDown = "${package}/bin/hyprpanel vol -5";
-                    scrollUp = "${package}/bin/hyprpanel vol +5";
+                    # scrollDown = "${package}/bin/hyprpanel vol -5";
+                    # scrollUp = "${package}/bin/hyprpanel vol +5";
                 };
                 windowtitle = {
                     class_name = true;
@@ -302,7 +302,7 @@
                     applicationIconEmptyWorkspace = "";
                     applicationIconFallback = "󰣆";
                     applicationIconOncePerWorkspace = true;
-                    hideUnoccupied = true;
+                    # hideUnoccupied = true;
                     icons = {
                         active = "";
                         available = "";
@@ -314,19 +314,19 @@
                     reverse_scroll = false;
                     scroll_speed = 5;
                     showAllActive = true;
-                    showApplicationIcons = false;
+                    showApplicationIcons = true;
                     showWsIcons = false;
                     show_icons = false;
                     show_numbered = false;
-                    spacing = 1;
+                    # spacing = 1;
                     workspaceMask = false;
-                    workspaces = 5;
+                    workspaces = 9;
                 };
             };
             dummy = true;
             hyprpanel = {
                 restartAgs = true;
-                restartCommand = "${pkgs.procps}/bin/pkill -u $USER -USR1 hyprpanel; ${package}/bin/hyprpanel";
+                # restartCommand = "${pkgs.procps}/bin/pkill -u $USER -USR1 hyprpanel; ${package}/bin/hyprpanel";
             };
             menus = {
                 clock = {
@@ -381,7 +381,7 @@
                     powermenu = {
                         avatar = {
                             image = "$HOME/.face.icon";
-                            name = "system"
+                            name = "system";
                         };
                         confirmation = true;
                         logout = "hyprctl dispatch exit";
@@ -390,7 +390,7 @@
                         sleep = "systemctl suspend";
                     };
                     shortcuts = {
-                        enable = true;
+                        enabled = true;
                         left = {
                             shortcut1 = {
                                 command = "firefox";

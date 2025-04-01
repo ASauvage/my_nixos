@@ -338,7 +338,7 @@
                         enabled = true;
                         interval = 60000;
                         # https://www.weatherapi.com/my/
-                        key = "86b604335d28439e83e121205250104";
+                        key = "";
                         location = "Paris";
                         unit = "imperial";
                     };

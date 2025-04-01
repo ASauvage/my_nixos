@@ -10,8 +10,8 @@
             rofimoji
         ]);
         extraConfig = {
-            modi = "drun, filebrowser, calc";
+            modi = "drun,filebrowser,calc";
         };
-        theme = ./config.rasi;
+        theme = ./spotlight_dark.rasi;
     };
 }

@@ -71,7 +71,7 @@ while [[ ! "$answer" =~ ^[Yy]$ ]]; do
     echo -e "\n# ----- USER SETTINGS ----- #"
     awk '/userSettings = {/,/};/ {if ($0 !~ /userSettings = \{/) print}' $location/$profile/flake.nix | sed '/^ *\}/d' | sed 's/^[ \t]*//'
 
-    read -p "Do you want to proceed? (y/n): " answer
+    read -p "Do you want to proceed? (y/n): " answer < /dev/tty
 
     if [[ "$answer" =~ ^(n|N)$ ]]; then
         # Open up editor to manually edit flake.nix before install

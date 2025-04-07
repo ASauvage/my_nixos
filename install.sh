@@ -85,7 +85,7 @@ while [[ ! "$answer" =~ ^[Yy]$ ]]; do
 done
 
 # Update flake
-read -p "Do you want to update flake lockfile? (y/n): " answer
+read -p "Do you want to update flake lockfile? (y/n): " answer < /dev/tty
 if [[ "$answer" =~ ^(y|Y)$ ]]; then
     echo "Updating lockfile..."
     nix flake update --flake $location/$profile

@@ -51,7 +51,7 @@ fi
 
 # Clone dotfiles
 echo "Cloning dotfiles..."
-nix-shell -p git --command "git clone git@github.com:ASauvage/my_nixos.git $location"
+nix-shell -p git --command "git clone https://github.com/ASauvage/my_nixos.git $location"
 
 # Generate hardware config for new system
 echo "Generate hardware config..."

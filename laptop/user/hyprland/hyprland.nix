@@ -9,8 +9,13 @@
     gtk = {
         enable = true;
         theme = {
-            package = pkgs.orchis-theme;
-            name = "Orchis-Teal";
+            package = pkgs.adw-gtk3;
+            name = "adw-gtk3-dark";
+        };
+        font = {
+            package = pkgs.cantarell-fonts;
+            name = "Cantarell-Regular";
+            size = 11;
         };
         cursorTheme = {
             package = pkgs.bibata-cursors;

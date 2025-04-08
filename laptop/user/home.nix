@@ -29,14 +29,14 @@
         userDirs = {
             enable = true;
             createDirectories = true;
-            music = "${config.home.homeDirectory}/Media/Music";
-            videos = "${config.home.homeDirectory}/Media/Videos";
-            pictures = "${config.home.homeDirectory}/Media/Pictures";
+            music = "${config.home.homeDirectory}/Music";
+            videos = "${config.home.homeDirectory}/Videos";
+            pictures = "${config.home.homeDirectory}/Pictures";
             templates = "${config.home.homeDirectory}/Templates";
             download = "${config.home.homeDirectory}/Downloads";
             documents = "${config.home.homeDirectory}/Documents";
+            publicShare = "${config.home.homeDirectory}/Public";
             desktop = null;
-            publicShare = null;
             extraConfig = {
                 XDG_REPOSITORIES_DIR = "${config.home.homeDirectory}/repositories";
                 XDG_DOTFILES_DIR = "${config.home.homeDirectory}/.dotfiles";
@@ -55,7 +55,7 @@
         TERMINAL = userSettings.term;
         BROWSER = userSettings.browser;
 
-        HYPRSHOT_DIR = "${config.home.homeDirectory}/Media/Pictures/Screenshots";
+        HYPRSHOT_DIR = "${config.home.homeDirectory}/Pictures/Screenshots";
     };
 
     # Nicely reload system units when changing configs

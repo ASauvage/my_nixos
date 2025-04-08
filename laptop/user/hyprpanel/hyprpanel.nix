@@ -705,7 +705,7 @@
             };
             wallpaper = {
                 enable = true;
-                image = "~/Media/Pictures/wallpaper.png";
+                image = "~/Pictures/wallpaper.png";
                 pywal = false;
             };
         };

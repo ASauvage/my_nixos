@@ -5,6 +5,7 @@
         nitch
         # starfetch
         cava
+        pipes
         timer
         bat
         unzip
@@ -33,7 +34,7 @@
             }
 
             function rebuild_home() {
-                home-manager switch --flake ${userSettings.dotfilesDir}/laptop#user
+                home-manager switch -b bak --flake ${userSettings.dotfilesDir}/laptop#user
             }
 
             function rebuild_system() {

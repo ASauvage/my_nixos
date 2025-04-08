@@ -8,7 +8,16 @@
         webcord
         spotify
         gnome-calculator
+        gnome-text-editor
+        gnome-disk-utility
+        deluge
+        vlc
+        anydesk
+        postman
+        mongodb-compass
+        melonDS
+        mgba
         wf-recorder
-        power-profiles-daemon
+        
     ]);
 }

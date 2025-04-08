@@ -24,6 +24,8 @@
         trusted-users = [ "@wheel" ];
     };
 
+    console.keyMap = "fr";
+
     nix.gc = {
         automatic = true;
         dates = "weekly";

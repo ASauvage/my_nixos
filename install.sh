@@ -66,7 +66,7 @@ sed -i "s+~/.dotfiles+$location+g" $location/$profile/flake.nix
 answer=""
 
 while [[ ! "$answer" =~ ^[Yy]$ ]]; do
-    echo -e "Rebuild system with this parameters:\n# ---- SYSTEM SETTINGS ---- #"
+    echo -e "\nRebuild system with this parameters:\n# ---- SYSTEM SETTINGS ---- #"
     awk '/systemSettings = {/,/};/ {if ($0 !~ /systemSettings = \{/) print}' $location/$profile/flake.nix | sed '/^ *\}/d' | sed 's/^[ \t]*//'
     echo -e "\n# ----- USER SETTINGS ----- #"
     awk '/userSettings = {/,/};/ {if ($0 !~ /userSettings = \{/) print}' $location/$profile/flake.nix | sed '/^ *\}/d' | sed 's/^[ \t]*//'
@@ -80,7 +80,7 @@ while [[ ! "$answer" =~ ^[Yy]$ ]]; do
         fi
         $EDITOR $location/$profile/flake.nix;
     else
-        echo "invalid response!"
+        echo -e "invalid response!\n"
     fi
 done
 

@@ -82,7 +82,7 @@
         gnome-system-monitor
     ];
 
-    environment.shells = with pkgs; [ fish ];
+    environment.shells = with pkgs; [ fish bash ];
     users.defaultUserShell = pkgs.fish;
     programs.fish.enable = true;
 

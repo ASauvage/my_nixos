@@ -18,6 +18,5 @@
         melonDS
         mgba
         wf-recorder
-        
     ]);
 }

@@ -40,7 +40,6 @@
             extraConfig = {
                 XDG_REPOSITORIES_DIR = "${config.home.homeDirectory}/repositories";
                 XDG_DOTFILES_DIR = "${config.home.homeDirectory}/.dotfiles";
-                XDG_ARCHIVE_DIR = "${config.home.homeDirectory}/Archive";
             };
         };
     };

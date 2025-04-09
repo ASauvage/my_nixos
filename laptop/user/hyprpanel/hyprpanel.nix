@@ -398,7 +398,7 @@
                                 tooltip = "Firefox";
                             };
                             shortcut2 = {
-                                command = "spotify-launcher";
+                                command = "spotify";
                                 icon = "";
                                 tooltip = "Spotify";
                             };

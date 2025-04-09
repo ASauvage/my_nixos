@@ -13,7 +13,7 @@
             };
             background = {
                 monitor = "";
-                path = "~/Media/Pictures/wallpaper.png";
+                path = "~/Pictures/wallpaper.png";
                 color = "rgba(20,19,24, 1.0)";
                 blur_passes = 3;
                 blur_size = 1;
@@ -106,7 +106,7 @@
                 # Battery
                 {
                     monitor = "";
-                    text = ''cmd[update:1000] . ~/.config/hypr/scripts/battery.sh status'';
+                    text = ''cmd[update:1000] . battery status'';
                     color = "rgba(229,222,255, 1.0)";
                     font_size = 15;
                     font_family = "Product Sans Medium";
@@ -118,10 +118,10 @@
                 }
                 {
                     monitor = "";
-                    text = ''cmd[update:1000] . ~/.config/hypr/scripts/battery.sh icon'';
+                    text = ''cmd[update:1000] . battery icon'';
                     color = "rgba(229,222,255, 1.0)";
                     font_size = 15;
-                    font_family = "Material Symbols Outlined";
+                    font_family = "Ubuntu Nerd Font";
                     position = "78, -85";
                     shadow_passes = 5;
                     shadow_size = 10;

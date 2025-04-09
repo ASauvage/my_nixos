@@ -11,10 +11,10 @@
         extraConfig = {
             modi = "drun,filebrowser,calc";
         };
-        # theme = ./spotlight_dark.rasi;
+        theme = ./custom_theme.rasi;
     };
 
     home.packages = (with pkgs; [
-        rofimoji
+        rofi-emoji-wayland
     ]);
 }

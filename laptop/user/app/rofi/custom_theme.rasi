@@ -1,97 +1,99 @@
-configuration {
-		show-icons: true;
-		modi: "drun,calc,window";
-		show: "drun";
-        font: "CaskaydiaCove Nerd Font Mono";
-        icon-theme: "Papirus-Dark";
-        drun {
-            fallback-icon: "package-x-generic";
-        }
-}
+/* MACOS SPOTLIGHT LIKE THEME FOR ROFI  */
+/* Author: Newman Sanchez (https://github.com/newmanls) */
 
-configuration {
-    font: "CaskaydiaCove Nerd Font Mono 16";
-    line-margin: 10;
-
-    display-ssh:    "";
-    display-run:    "";
-    display-drun:   "";
-    display-window: "";
-    display-combi:  "";
-    display-emoji: "ﲃ";
-    display-calc: "";
-    display-clipboard: "";
-    fixed-num-lines: false;
-    show-icons:     true;
-    transparency: "real";
-}
-
-// THEME
 * {
-    vertical-align: 0.5;
-    
-    // Colors
-    bg: #07181E;
-    fg: #cbdfe0;
-    selection: #1E5D6A;
-    transparent: #00000000;
-}
-window {
-    border: 2px;
-    border-radius: 0;
-    border-color: @selection;
-}
-window {
-    background-color: @bg;
-}
-mainbox,inputbar,listview,message,textbox,prompt,entry{
-    background-color: @transparent;
+    font:   "Montserrat 12";
+
+    bg0:     #F5F5F5BF;
+    bg1:     #7E7E7E80;
+    bg2:     #0860F2E6;
+
+    fg0:     #242424;
+    fg1:     #FFFFFF;
+    fg2:     #24242480;
+
+    background-color:   transparent;
+    text-color:         @fg0;
+
+    margin:     0;
+    padding:    0;
+    spacing:    0;
 }
 
-// Inputbar
+window {
+    background-color:   @bg0;
+
+    location:       center;
+    width:          640;
+    border-radius:  8;
+}
+
 inputbar {
-    padding: 2px;
-    children: [prompt,entry];
+    font:       "Montserrat 20";
+    padding:    12px;
+    spacing:    12px;
+    children:   [ icon-search, entry ];
 }
-prompt {
-    font: "monospace 22";
-    padding: 0 16px 0 8px;
-    color: @fg;
+
+icon-search {
+    expand:     false;
+    filename:   "search";
+    size: 28px;
 }
+
+icon-search, entry, element-icon, element-text {
+    vertical-align: 0.5;
+}
+
 entry {
-    color: @fg;
+    font:   inherit;
+
+    placeholder         : "Search";
+    placeholder-color   : @fg2;
 }
 
-// Element
-listview {
-    border: none;
-    scrollbar: false;
-}
-element, message {
-    padding: 5px;
-    border-radius: 0;
-}
-element selected.normal, element normal.active, element selected.active {
-    background-color: @selection;
-}
-element normal.normal, element alternate.normal, scrollbar {
-    background-color: @transparent;
-}
-element-icon, element-text {
-    background-color: @transparent;
-    color: @fg;
-}
-element-icon {
-    padding: 0 8px 0 0;
-}
-scrollbar {
-    handle-color: @fg;
-}
-
-// Message
 message {
-    border: none;
+    border:             2px 0 0;
+    border-color:       @bg1;
+    background-color:   @bg1;
 }
+
 textbox {
-    color: @fg;
+    padding:    8px 24px;
+}
+
+listview {
+    lines:      10;
+    columns:    1;
+
+    fixed-height:   false;
+    border:         1px 0 0;
+    border-color:   @bg1;
+}
+
+element {
+    padding:            8px 16px;
+    spacing:            16px;
+    background-color:   transparent;
+}
+
+element normal active {
+    text-color: @bg2;
+}
+
+element alternate active {
+    text-color: @bg2;
+}
+
+element selected normal, element selected active {
+    background-color:   @bg2;
+    text-color:         @fg1;
+}
+
+element-icon {
+    size:   1em;
+}
+
+element-text {
+    text-color: inherit;
 }

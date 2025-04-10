@@ -7,7 +7,7 @@
         pictures = "cd ~/Pictures";
         music = "cd ~/Music";
         videos = "cd ~/Videos";
-        repos = "cd ~/repositories";
+        repos = "cd /media/DATA/repositories";
 
         # System
         ls = "ls --color=auto";

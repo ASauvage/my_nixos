@@ -398,7 +398,7 @@
                                 label = "󰉏 Videos";
                             };
                             directory3 = {
-                                command = "bash -c \"nautilus $HOME/repositories/\"";
+                                command = "bash -c \"nautilus /media/DATA/repositories/\"";
                                 label = "󰚝 Repositories";
                             };
                         };

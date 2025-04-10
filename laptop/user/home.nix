@@ -6,7 +6,7 @@
         ( import ./hyprpanel/hyprpanel.nix { inherit inputs pkgs userSettings; })
         ./app/browser/firefox.nix
         ./app/anyrun.nix
-        ./app/rofi/rofi.nix
+        ( import ./app/rofi/rofi.nix {inherit pkgs pkgs-unstable; })
         ./app/foot.nix
         ./app/git.nix
         ./app/vim.nix

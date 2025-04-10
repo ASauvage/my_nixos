@@ -18,38 +18,14 @@
         # Default: false
         overwrite.enable = true;
 
-        # Import a theme from './themes/*.json'.
-        # Default: ""
-        theme = "gruvbox_split";
-
         # Override the final config with an arbitrary set.
         # Useful for overriding colors in your selected theme.
         # Default: {}
         override = {
-            theme.bar.menus.text = "#123ABC";
-        };
-
-        # Configure bar layouts for monitors.
-        # See 'https://hyprpanel.com/configuration/panel.html'.
-        # Default: null
-        layout = {
-            "bar.layouts" = {
-                "0" = {
-                    left = ["dashboard" "workspaces" "windowtitle"];
-                    middle = ["media"];
-                    right = ["systray" "bluetooth" "network" "volume" "battery" "clock" "notifications"];
-                };
-                "1" = {
-                    left = ["dashboard" "workspaces" "windowtitle"];
-                    middle = ["media"];
-                    right = ["volume" "clock" "notifications"];
-                };
-                "2" = {
-                    left = ["dashboard" "workspaces" "windowtitle"];
-                    middle = ["media"];
-                    right = ["volume" "clock" "notifications"];
-                };
-            };
+            theme.bar.floating = true;
+            theme.bar.dashboard.scaling = 80;
+            theme.bar.menus.popover.scaling = 90;
+            theme.font.size = "1.1rem";
         };
 
         # Configure and theme almost all options from the GUI.
@@ -58,6 +34,20 @@
         # See 'https://hyprpanel.com/configuration/settings.html'.
         # Default: <same as gui>
         settings = {
+            layout = {
+                "bar.layouts" = {
+                    "0" = {
+                        left = ["dashboard" "workspaces" "windowtitle"];
+                        middle = ["media"];
+                        right = ["systray" "bluetooth" "network" "volume" "battery" "clock" "notifications"];
+                    };
+                    "*" = {
+                        left = ["dashboard" "workspaces" "windowtitle"];
+                        middle = ["cava"];
+                        right = ["volume" "clock" "notifications"];
+                    };
+                };
+            };
             bar = {
                 autoHide = "never";
                 battery = {
@@ -86,6 +76,36 @@
                     showTime = true;
                 };
                 customModules = {
+                    cava = {
+                        showIcon = true;
+                        icon = "";
+                        spaceCharacter = " ";
+                        barCharacters = [
+                            "▁"
+                            "▂"
+                            "▃"
+                            "▄"
+                            "▅"
+                            "▆"
+                            "▇"
+                            "█"
+                        ];
+                        showActiveOnly = false;
+                        bars = 10;
+                        channels = 2;
+                        framerate = 60;
+                        samplerate = 44100;
+                        autoSensitivity = true;
+                        lowCutoff = 50;
+                        highCutoff = 10000;
+                        noiseReduction = 0.77;
+                        stereo = false;
+                        leftClick = "hyprpanel t mediamenu";
+                        rightClick = "";
+                        middleClick = "";
+                        scrollUp = "";
+                        scrollDown = "";
+                    };
                     cpu = {
                         icon = "";
                         label = true;
@@ -239,12 +259,25 @@
                         scrollUp = "";
                         unit = "imperial";
                     };
+                    worldclock = {
+                        format = "%I:%M:%S %p %Z";
+                        formatDiffDate = "%a %b %d  %I:%M:%S %p %Z";
+                        divider = "  ";
+                        icon = "󱉊";
+                        middleClick = "";
+                        rightClick = "";
+                        scrollDown = "";
+                        scrollUp = "";
+                        showIcon = true;
+                        showTime = true;
+                        tz = ["Europe/Paris" "America/New_York" "Asia/Tokyo"];
+                    };
                 };
                 launcher = {
                     autoDetectIcon = false;
                     icon = "";
                     middleClick = "";
-                    rightClick = "";
+                    rightClick = "hyprpanel t settings-dialog";
                     scrollDown = "";
                     scrollUp = "";
                 };
@@ -278,6 +311,9 @@
                     show_total = false;
                 };
                 scrollSpeed = 5;
+                systray = {
+                    ignore = [];
+                };
                 volume = {
                     label = false;
                     middleClick = "";
@@ -347,6 +383,9 @@
                     controls = {
                         enabled = true;
                     };
+                    recording = {
+                        path = "$XDG_VIDEO_DIR/Screencasts";
+                    };
                     directories = {
                         enabled = true;
                         left = {
@@ -380,7 +419,7 @@
                     };
                     powermenu = {
                         avatar = {
-                            image = "$HOME/.face.icon";
+                            image = "~/.face.icon";
                             name = "system";
                         };
                         confirmation = true;
@@ -471,6 +510,7 @@
             tear = false;
             terminal = "$TERM";
             theme = {
+                name = "gruvbox_split";
                 bar = {
                     border = {
                         location = "none";
@@ -625,7 +665,7 @@
                                 confirmation_scaling = 100;
                                 profile.radius = "0.4em";
                                 profile.size = "8.5em";
-                                scaling = 80;
+                                scaling = 100;
                             };
                             media = {
                                 card.tint = 85;
@@ -649,7 +689,7 @@
                         opacity = 100;
                         popover = {
                             radius = "0.4em";
-                            scaling = 90;
+                            scaling = 100;
                         };
                         progressbar.radius = "0.3rem";
                         scroller = {
@@ -673,7 +713,7 @@
                 };
                 font = {
                     name = "Ubuntu Nerd Font";
-                    size = "1.1rem";
+                    size = "1.2rem";
                     weight = 600;
                 };
                 matugen = false;

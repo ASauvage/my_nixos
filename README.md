@@ -15,7 +15,7 @@ This repository contains my NixOS flake configuration for setting up my laptop a
 
 | Laptop     | Server     |
 | :--------: | :--------: |
-| 2025-04-01 | Never      |
+| 2025-04-10 | Never      |
 
 ## Install the OS
 

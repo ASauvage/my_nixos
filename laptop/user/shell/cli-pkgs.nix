@@ -11,6 +11,7 @@
         unzip
         wl-clipboard
         wev
+        jq
         (pkgs.writeShellScriptBin "airplane-mode" ''
             #!/bin/sh
             

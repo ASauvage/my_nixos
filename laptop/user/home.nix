@@ -38,7 +38,7 @@
             publicShare = "${config.home.homeDirectory}/Public";
             desktop = null;
             extraConfig = {
-                XDG_REPOSITORIES_DIR = "${config.home.homeDirectory}/repositories";
+                # XDG_REPOSITORIES_DIR = "${config.home.homeDirectory}/repositories";
                 XDG_DOTFILES_DIR = "${config.home.homeDirectory}/.dotfiles";
             };
         };

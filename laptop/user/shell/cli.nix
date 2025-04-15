@@ -1,12 +1,11 @@
 { pkgs, ... }: let
     aliases = {
         # Shortcut
-        desktop = "cd ~/Desktop";
-        downloads = "cd ~/Downloads";
-        documents = "cd ~/Documents";
-        pictures = "cd ~/Pictures";
-        music = "cd ~/Music";
-        videos = "cd ~/Videos";
+        downloads = "cd $XDG_DOWNLOAD_DIR/";
+        documents = "cd $XDG_DOCUMENTS_DIR/";
+        pictures = "cd $XDG_PICTURES_DIR/";
+        music = "cd $XDG_MUSICS_DIR/";
+        videos = "cd $XDG_VIDEOS_DIR/";
         repos = "cd /media/DATA/repositories";
 
         # System

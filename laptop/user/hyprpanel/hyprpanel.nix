@@ -390,11 +390,11 @@
                         enabled = true;
                         left = {
                             directory1 = {
-                                command = "bash -c \"nautilus $HOME/Downloads/\"";
+                                command = "bash -c \"nautilus $XDG_DOWNLOAD_DIR/\"";
                                 label = "󰉍 Downloads";
                             };
                             directory2 = {
-                                command = "bash -c \"nautilus $HOME/Media/Videos/\"";
+                                command = "bash -c \"nautilus $XDG_VIDEOS_DIR/\"";
                                 label = "󰉏 Videos";
                             };
                             directory3 = {
@@ -404,11 +404,11 @@
                         };
                         right = {
                             directory1 = {
-                                command = "bash -c \"nautilus $HOME/Documents/\"";
+                                command = "bash -c \"nautilus $XDG_DOCUMENTS_DIR/\"";
                                 label = "󱧶 Documents";
                             };
                             directory2 = {
-                                command = "bash -c \"nautilus $HOME/Media/Pictures/\"";
+                                command = "bash -c \"nautilus $XDG_PICTURES_DIR/\"";
                                 label = "󰉏 Pictures";
                             };
                             directory3 = {

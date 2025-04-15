@@ -14,5 +14,4 @@
         };
         # theme = ./custom_theme.rasi;
     };
-
 }

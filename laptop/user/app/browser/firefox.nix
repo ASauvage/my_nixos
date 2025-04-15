@@ -58,6 +58,11 @@
                     private_browsing = true;
                     install_url = "https://addons.mozilla.org/firefox/downloads/latest/github-file-icons/latest.xpi";
                 };
+                "reddit-url-redirector@kichkoupi.com" = {
+                    installation_mode = "normal_installed";
+                    private_browsing = true;
+                    install_url = "https://addons.mozilla.org/firefox/downloads/latest/reddituntranslate/latest.xpi";
+                };
             };
             Bookmarks = [
                 {

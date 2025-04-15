@@ -1,5 +1,5 @@
 {
-    description = "NixOS system installation for laptop";
+    description = "NixOS system installation for desktop";
 
     inputs = {
         nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";

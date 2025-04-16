@@ -6,7 +6,7 @@
         pictures = "cd $XDG_PICTURES_DIR/";
         music = "cd $XDG_MUSICS_DIR/";
         videos = "cd $XDG_VIDEOS_DIR/";
-        repos = "cd /media/DATA/repositories";
+        repos = "cd $XDG_REPOSITORIES_DIR/";
 
         # System
         ls = "ls --color=auto";

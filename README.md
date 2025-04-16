@@ -1,8 +1,14 @@
 # My NixOS Flake Configurations
 
-This repository contains my NixOS flake configuration for setting up my laptop and server.
+This repository contains my NixOS flake configuration for setting up my laptop, desktop and server.
 
 ## About This Configuration
+
+There are 3 profiles available in this repository:
+
+- `laptop`: NixOS system for laptop users (includes battery support and other laptop-related features)
+- `desktop`: (wip) NixOS system for desktop users (similar to the laptop profile but without battery support and with different monitor configuration)
+- `server`: (wip) NixOS system for servers (lightweight system without a desktop environment)
 
 ### Channels Used
 
@@ -13,9 +19,9 @@ This repository contains my NixOS flake configuration for setting up my laptop a
 
 ### Last Flake Update
 
-| Laptop     | Server     |
-| :--------: | :--------: |
-| 2025-04-10 | Never      |
+| Laptop     | Desktop    | Server     |
+| :--------: | :--------: | :--------: |
+| 2025-04-10 | Never      | Never      |
 
 ## Install the OS
 

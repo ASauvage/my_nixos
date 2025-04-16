@@ -9,9 +9,9 @@
             rofi-calc
             rofi-emoji-wayland
         ]);
+        # theme = ./custom_theme.rasi;
         extraConfig = {
             modi = "drun,filebrowser,calc,emoji";
         };
-        # theme = ./custom_theme.rasi;
     };
 }

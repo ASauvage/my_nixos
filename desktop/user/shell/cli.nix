@@ -7,6 +7,7 @@
         music = "cd $XDG_MUSICS_DIR/";
         videos = "cd $XDG_VIDEOS_DIR/";
         repos = "cd $XDG_REPOSITORIES_DIR/";
+        dotfiles = "cd $XDG_DOTFILES_DIR/";
 
         # System
         ls = "ls --color=auto";
@@ -23,8 +24,7 @@
 
         # QoL
         grep = "grep --color=auto";
-        mongostart = "sudo systemctl start mongodb.service";
-        mongostop = "sudo systemctl stop mongodb.service";
+        nixdev = "nix develop path:$(pwd) -c $SHELL";
     };
 in
 {

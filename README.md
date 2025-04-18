@@ -21,7 +21,7 @@ There are 3 profiles available in this repository:
 
 | Laptop     | Desktop    | Server     |
 | :--------: | :--------: | :--------: |
-| 2025-04-10 | Never      | Never      |
+| 2025-04-10 | 2025-04-15 | Never      |
 
 ## Install the OS
 
